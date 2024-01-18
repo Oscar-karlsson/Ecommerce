@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <NavLink to="/" className={styles.logo}>
-        <img src="./src/assets/logo.png" alt="TechStore Logo" style={{ height: '50px', width: 'auto' }} />
+        <img src="../src/assets/logo.png" alt="TechStore Logo" style={{ height: '50px', width: 'auto' }} />
       </NavLink>
       <ul className={`${styles.navbarLinks} ${isOpen ? styles.showMenu : ''}`}>
         <li><NavLink to="/products">Products</NavLink></li>

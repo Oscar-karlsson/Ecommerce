@@ -10,14 +10,16 @@
     justify-content: center;
     border: 1px solid #EEEEEE; /* Very light gray border */
     margin: 0 auto 2rem auto;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   }
 
 
   
-  /* .productCard:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-
-  } */
+ 
+.productCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+}
   
   .productCard img {
     width: 100%;
@@ -69,12 +71,12 @@
   }
   
   .addToCartButton {
-    background-color: #4CAF50; 
+    background-color: #4CAF50;
     border: none;
     color: white;
     width: 33px;
-  height: 33px;
-  padding: 0;
+    height: 33px;
+    padding: 0;
     text-align: center;
     text-decoration: none;
     display: flex;
