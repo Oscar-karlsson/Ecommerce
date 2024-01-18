@@ -1,0 +1,20 @@
+.categoryRow {
+    margin-bottom: 20px;
+  }
+  
+  .products {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust as necessary */
+  }
+
+  .categoryTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333; /* Dark gray for category titles */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
