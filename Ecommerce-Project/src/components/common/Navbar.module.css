@@ -46,6 +46,30 @@
   .navbarIcons a:hover {
     color: #9e9e9e; /* White */
 }
+
+.cartIcon {
+  position: relative;
+  display: inline-block;
+}
+
+
+.cartItemCount {
+  position: absolute;
+  top: -10px; /* Adjust as needed for finer positioning */
+  right: -11px; /* Adjust as needed for finer positioning */
+  background-color: red; /* Change color as desired */
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7em; /* Smaller font size */
+  padding: 3px 3px; /* Smaller padding */
+  min-width: 15px; /* Minimum width to ensure circle shape */
+  height: 15px; /* Fixed height to match width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold; /* Optional: makes the number more prominent */
+}
   
   .hamburger {
     display: none;
@@ -84,13 +108,15 @@
   /* Responsive styles */
   @media screen and (max-width: 768px) {
     .navbarLinks {
+      text-align: center;
         display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
         top: 60px; /* Adjust based on the height of your navbar */
         left: 0;
-        background-color: #1a1a2e; /* Dark blue-grey */
+        background-color: #F5F5F5; /* Dark blue-grey */
+        padding: 1rem;
     }
 
     .showMenu {

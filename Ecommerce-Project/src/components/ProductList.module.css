@@ -3,11 +3,12 @@
   }
   
   .products {
-    margin: 0 auto;
-    width: 80%;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Adjust as necessary */
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    scroll-behavior: smooth;
+    margin: 0 30px;
   }
 
   .categoryTitle {
@@ -18,3 +19,36 @@
     text-align: center;
   }
 
+  .products::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .products {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Styles for scroll buttons */
+.scrollButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.scrollButton:first-of-type {
+  left: 0;
+}
+
+.scrollButton:last-of-type {
+  right: 0;
+}
