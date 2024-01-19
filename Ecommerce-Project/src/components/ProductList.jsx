@@ -15,19 +15,20 @@ const ProductList = ({ products }) => {
     }, {});
   
     return (
-        <div className={styles.productListContainer}>
-          {Object.entries(productsByCategory).map(([category, products]) => (
-            <>
-              <h2 className={styles.categoryTitle}>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
-              <div className={styles.products}>
-                {products.map(product => (
-                  <Product key={product._id} product={product} />
-                ))}
-              </div>
-            </>
-          ))}
-        </div>
-      );};
+      <div className={styles.productListContainer}>
+        {Object.entries(productsByCategory).map(([category, products]) => (
+          <React.Fragment key={category}>
+            <h2 className={styles.categoryTitle}>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
+            <div className={styles.products}>
+              {products.map(product => (
+                <Product key={product._id} product={product} />
+              ))}
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
+    );
+  };
   
 
   export default ProductList;

@@ -48,8 +48,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    margin: 0; /* Add margin if needed */
-    /* Ensure there's enough height to display 3 lines */
+    margin: 0; 
     line-height: 1.2em; /* Adjust line-height as needed */
     max-height: 3.6em;
   }
@@ -68,6 +67,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 1rem 0 1rem 0;
   }
   
   .addToCartButton {

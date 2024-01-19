@@ -1,0 +1,35 @@
+.searchBar {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    flex-grow: 1;
+  }
+  
+  .searchBar input {
+    padding: 10px;
+    padding-right: 30px; /* Make room for the icon */
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    min-width: 500px;
+    color: #000; /* Change text color to black */
+    background-color: #fff; /* Change background color to white */
+    font-family: Arial, sans-serif; /* Change as needed */
+    border-color: #000; /* Change border color to black */
+    border-width: 2px; /* Increase border width */
+}
+  
+.searchIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #757575; /* Light grey */
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.searchIcon:hover {
+  color: #000; /* Change color to black on hover */
+  cursor: pointer;
+}

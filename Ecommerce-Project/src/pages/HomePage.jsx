@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductList from '../components/ProductList';
+import LatestProducts from '../components/LatestProducts';
 
 
 const API_URL = 'https://js2-ecommerce-api.vercel.app/api/products';
@@ -24,6 +25,7 @@ const HomePage = () => {
   return (
     <div>
       <ProductList products={products} />
+      <LatestProducts products={products} /> 
     </div>
   );
 };
