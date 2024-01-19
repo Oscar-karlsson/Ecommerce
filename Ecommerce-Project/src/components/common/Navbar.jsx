@@ -37,32 +37,34 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.topRow}>
         <NavLink to="/" className={styles.logo}>
-          <img src="../src/assets/logo.png" alt="TechStore Logo" style={{ height: '50px', width: 'auto' }} />
+          <img src="../src/assets/logo-text.png" alt="TechStore Logo" style={{ height: '50px', width: 'auto' }} />
         </NavLink>
         
         <div className={styles.searchBar}>
           <SearchBar />
         </div>
-
-        <div className={styles.navbarIcons}>
-          <Link to="/account">
-            <FontAwesomeIcon icon={faUser} />
-          </Link>
-          <Link to="/cart" className={styles.cartIcon}>
-            <FontAwesomeIcon icon={faShoppingCart} />
-            {cartItemCount > 0 && (
-              <span className={styles.cartItemCount}>99+</span>
-            )}
-          </Link>
-        </div>
-
-        <div className={`${styles.hamburger} ${isOpen ? styles.open : ''}`} onClick={toggleMenu} ref={node}>
-          <span></span>
-          <span></span>
-          <span></span>
+  
+        <div className={styles.rightSide}>
+          <div className={styles.navbarIcons}>
+            <Link to="/account">
+              <FontAwesomeIcon icon={faUser} />
+            </Link>
+            <Link to="/cart" className={styles.cartIcon}>
+              <FontAwesomeIcon icon={faShoppingCart} />
+              {cartItemCount > 0 && (
+                <span className={styles.cartItemCount}>99+</span>
+              )}
+            </Link>
+          </div>
+  
+          <div className={`${styles.hamburger} ${isOpen ? styles.open : ''}`} onClick={toggleMenu} ref={node}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
-
+  
       <ul className={`${styles.navbarLinks} ${isOpen ? styles.showMenu : ''}`}>
         <li><NavLink to="/products">Products</NavLink></li>
         <li><NavLink to="/kontakta-oss">Kontakta oss</NavLink></li>
@@ -70,7 +72,6 @@ const Navbar = () => {
         {/* Additional navigation links */}
       </ul>
     </nav>
-  );
-};
+  );};
 
 export default Navbar;

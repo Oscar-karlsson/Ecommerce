@@ -12,7 +12,7 @@
     border: none;
     border-radius: 5px;
     width: 100%;
-    min-width: 500px;
+    min-width: 400px;
     color: #000; /* Change text color to black */
     background-color: #fff; /* Change background color to white */
     font-family: Arial, sans-serif; /* Change as needed */
@@ -32,4 +32,17 @@
 .searchIcon:hover {
   color: #000; /* Change color to black on hover */
   cursor: pointer;
+}
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the search input box go full width */
+@media screen and (max-width: 600px) {
+  .searchBar {
+    width: 100%;
+  }
+.searchBar input {
+    width: 100%;
+    min-width: 100%;
+  }
+  
 }

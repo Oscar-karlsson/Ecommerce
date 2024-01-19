@@ -35,7 +35,7 @@ const LatestProducts = ({ products }) => {
                   <p className={styles.productDescription}>{product.description}</p>
                 </div>
                 <div className={styles.priceAndButtonContainer}>
-                  <p className={styles.productPrice}>${product.price}</p>
+                  <p className={styles.productPrice}>{product.price} kr</p>
                   <button className={styles.addToCartButton} onClick={handleAddToCart}>
                     <FontAwesomeIcon icon={faShoppingCart} />
                   </button>

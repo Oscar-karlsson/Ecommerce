@@ -7,7 +7,6 @@
   background-color: #F5F5F5; 
   color: #333333;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  margin-bottom: 2rem;
 }
 
 .topRow, .bottomRow {
@@ -20,10 +19,12 @@
 .logo {
   height: 50px;
   width: auto;
-  margin-left: 2rem;
 }
 
-
+.searchBar {
+  flex-grow: 1;
+  margin:  0 1rem;
+}
 
 .navbarIcons {
   margin-right: 2rem;
@@ -115,12 +116,13 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    flex-wrap: wrap; 
   }
 
   .navbarLinks {
     display: none;
   }
+  
 
   .searchBar {
     width: 100%;
@@ -139,5 +141,22 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+  }
+
+  .navbar {
+   
+    display: flex;
+    justify-content: space-between;
+   
+  }
+
+  .topRow {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .rightSide {
+    display: flex;
+    align-items: center;
   }
 }
