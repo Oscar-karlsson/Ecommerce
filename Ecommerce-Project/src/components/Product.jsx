@@ -23,6 +23,7 @@ const Product = ({ product }) => {
     };
 
     return (
+      <div className={styles.carouselContainer}>
         <div className={styles.productCard} onClick={handleProductClick}>
           <img src={imageUrl} alt={product.name} />
           <div className={styles.titleAndDescriptionContainer}>
@@ -35,6 +36,7 @@ const Product = ({ product }) => {
               <FontAwesomeIcon icon={faShoppingCart} />
             </button>
           </div>
+        </div>
         </div>
     );
 };

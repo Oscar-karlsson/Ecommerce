@@ -66,12 +66,12 @@ const Navbar = () => {
       </div>
   
       <ul className={`${styles.navbarLinks} ${isOpen ? styles.showMenu : ''}`}>
-        <li><NavLink to="/products">Products</NavLink></li>
+        <li><NavLink to="/alla-produkter">Alla Produkter</NavLink></li>
         <li><NavLink to="/kontakta-oss">Kontakta oss</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
         {/* Additional navigation links */}
       </ul>
     </nav>
-  );};
+  );}
 
 export default Navbar;

@@ -136,12 +136,7 @@
     order: 1; /* Hamburger next to icons */
   }
 
-  .showMenu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
+
 
   .navbar {
    
@@ -158,5 +153,14 @@
   .rightSide {
     display: flex;
     align-items: center;
+  }
+
+  .navbarLinks {
+    /* Your existing styles */
+    display: none; /* Hide the menu when it's not clicked */
+  }
+
+  .showMenu {
+    display: flex !important; /* Show the menu when it's clicked */
   }
 }

@@ -1,22 +1,40 @@
 .categoryRow {
     margin-bottom: 20px;
+    
+  }
+
+  .productListContainer {
+    height: 100%;
+    padding: 1rem;
+   
+    flex-direction: column;
+    align-items: center;
   }
   
+  ._productCard_1c08f_1 {
+    margin: 0; /* Adjust as needed */
+    padding: 0; /* Adjust as needed */
+  }
+
+
   .products {
     display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px;
-    scroll-behavior: smooth;
-    margin: 0 30px;
+   
+    gap: 1px; /* Space between grid items */
+    
+    align-items: start; /* Align grid items to the start vertically */
+    
+   margin: 0px;
+   padding: 0px;
+  
   }
 
   .categoryTitle {
     font-size: 24px;
     font-weight: bold;
-    color: #333333; /* Dark gray for category titles */
-    margin-bottom: 20px;
+    color: #333;
     text-align: center;
+    margin-bottom: 1rem; /* Adjust space above slider */
   }
 
   .products::-webkit-scrollbar {
@@ -26,29 +44,67 @@
   .products {
     -ms-overflow-style: none;
     scrollbar-width: none;
+ 
   }
   
-  /* Styles for scroll buttons */
-.scrollButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  user-select: none;
-  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-}
+  .productSlide {
+    padding: 10px; /* Adjust as needed */
+    box-sizing: border-box; /* Ensures padding is included in width */
+  }
+  
 
-.scrollButton:first-of-type {
-  left: 0;
-}
 
-.scrollButton:last-of-type {
-  right: 0;
-}
+  .carouselButton {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .carouselButton:first-child {
+    left: -5px;
+  }
+  
+  .carouselButton:last-child {
+    right: -5px;
+  }
+
+  :global(.slick-dots) {
+    bottom: -10px !important; 
+  }
+
+  .carouselItem {
+    width: 100%;
+  }
+  
+  @media (min-width: 480px) {
+    .carouselItem {
+      width: 50%;
+    }
+  
+    .categoryTitle {
+      margin: 2rem 0 2rem 0;
+    }
+    
+  }
+  
+  @media (min-width: 768px) {
+    .carouselItem {
+      width: 33.33%;
+    }
+    
+  }
+  
+  @media (min-width: 1024px) {
+    .carouselItem {
+      width: 25%;
+    }
+  }
+  
+  .categoryTitle {
+    margin: 1rem 0;
+  }
+  
