@@ -67,26 +67,55 @@
   font-weight: bold;
 }
 
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.decrement, .increment {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .quantityInput {
   width: 50px;
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
   text-align: center;
+  line-height: 30px; /* Add this line */
+  height: 30px; /* Add this line */
+}
+
+.increment {
+  margin-left: -5px; /* Adjust this value to move the "+" button to the left */
+}
+
+.quantityInput::-webkit-inner-spin-button,
+.quantityInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .addToCartButton {
-  background-color: #007bff;
-  color: white;
+  background-color: #4CAF50;
   border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
+  color: white;
+  width: 33px;
+  height: 33px;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 4px;
 }
 
 .addToCartButton:hover {
-  background-color: #0056b3;
+  background-color: #45a049; /* dark green */
 }
 
 .actionRow {
@@ -144,4 +173,17 @@
 
 .closeModal:hover {
   color: #222;
+}
+
+
+@media (max-width: 768px) {
+.productInfo {
+margin-right: 1rem;
+}
+
+.actionRow {
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
 }

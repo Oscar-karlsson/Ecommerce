@@ -3,6 +3,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from './ProductDetail.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
+
 
 
 const ProductDetail = () => {
@@ -12,6 +16,7 @@ const ProductDetail = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalImage, setModalImage] = useState('');
     const modalRef = useRef();
+    
 
     const openModal = (image) => {
       setModalImage(image);
@@ -53,10 +58,26 @@ const ProductDetail = () => {
     const handleQuantityChange = (e) => {
         setQuantity(e.target.value);
       };
+
+      const handleIncrement = () => {
+        setQuantity(quantity + 1);
+      };
+
+      const handleDecrement = () => {
+        if (quantity > 1) {
+          setQuantity(quantity - 1);
+        }
+      };
     
-      const addToCart = () => {
-        console.log(`Added ${quantity} of ${product.name} to cart.`);
-        // Implement your add to cart logic here
+    
+      const handleProductClick = () => {
+        // Navigate to product detail page
+        navigate(`/product/${product._id}`);
+      };
+  
+      const handleAddToCart = (e) => {
+        e.stopPropagation(); // Prevents the click from triggering the navigation
+        // Add to cart logic here
       };
   
     if (!product) {
@@ -80,17 +101,19 @@ const ProductDetail = () => {
           <p className={styles.productDescription}>{product.description}</p>
           <div className={styles.actionRow}>
             <p className={styles.productPrice}>{product.price} kr</p>
-            <div className={styles.quantityAndButton}>
-              <input 
-                type="number" 
-                min="1" 
-                value={quantity} 
-                onChange={handleQuantityChange} 
-                className={styles.quantityInput} 
-              />
-              <button onClick={addToCart} className={styles.addToCartButton}>
-                Add to Cart
-              </button>
+         <div className={styles.quantityAndButton}>
+      <button className={styles.decrement} onClick={handleDecrement}>-</button>
+      <input 
+        type="number" 
+        min="1" 
+        value={quantity} 
+        onChange={handleQuantityChange} 
+        className={styles.quantityInput} 
+      />
+      <button className={styles.increment} onClick={handleIncrement}>+</button>
+                 <button className={styles.addToCartButton} onClick={handleAddToCart}>
+              <FontAwesomeIcon icon={faShoppingCart} />
+            </button>
             </div>
           </div>
         </div>

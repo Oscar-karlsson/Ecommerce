@@ -73,6 +73,11 @@
   flex-shrink: 0;
 }
 
+.productPrice {
+  color: #888;
+  font-size: 0.9em;
+}
+
 /* Responsive layout - when the screen is less than 600px wide, make the search input box go full width */
 @media screen and (max-width: 600px) {
   .searchBar {

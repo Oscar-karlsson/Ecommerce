@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styles from './SearchBar.module.css'; // Import the CSS module
+import { useNavigate } from 'react-router-dom';
 
 
 const SearchBar = () => {
@@ -10,6 +11,7 @@ const SearchBar = () => {
   const [search , setSearch] = useState('');
   const [products, setProducts] = useState([]); 
   const searchResultsRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('https://js2-ecommerce-api.vercel.app/api/products')
@@ -22,9 +24,6 @@ const SearchBar = () => {
       });
 
       const handleClickOutside = (event) => {
-        console.log('Document was clicked');
-        console.log('searchResultsRef.current:', searchResultsRef.current);
-        console.log('event.target:', event.target);
         if (searchResultsRef.current && !searchResultsRef.current.contains(event.target)) {
           console.log('Click was outside search results');
           setSearch('');
@@ -38,7 +37,16 @@ const SearchBar = () => {
     };
   }, []);
 
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
 
+  const handleSearchSubmit = (e) => {
+    if (e.key === 'Enter' && search.trim() !== '') {
+      navigate(`/search?query=${search}`);
+      setSearch(''); // clear the search input
+    }
+  };
   
 
   const filteredProducts = products.filter(product => 
@@ -52,6 +60,7 @@ const SearchBar = () => {
         placeholder={`Sök bland ${numberOfProducts} Produkter...`} 
         value={search} 
         onChange={e => setSearch(e.target.value)}
+        onKeyPress={handleSearchSubmit}
       />
 {search.length >= 2 && (
   <div className={styles.searchResults} ref={searchResultsRef}>
@@ -61,6 +70,7 @@ const SearchBar = () => {
       <div className={styles.productItem}>
         <img src={product.images[0]} alt={product.name} className={styles.productImage} />
         <div className={styles.productName}>{product.name}</div>
+        <div className={styles.productPrice}>{product.price} kr</div> {/* Add this line */}
       </div>
     </div>
   </Link>

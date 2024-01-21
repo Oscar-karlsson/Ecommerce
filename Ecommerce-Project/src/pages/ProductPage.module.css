@@ -40,3 +40,32 @@
     min-width: 250px;
     /* Other styles */
   }
+
+
+  .productsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
+  
+  .loadMoreButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+  }
+
+
+  @media (max-width: 600px) {
+    .productsGrid {
+      flex-direction: column;
+    }
+  
+    .productCard {
+      min-width: 100%;
+      max-width: 100%;
+
+    }
+
+ 
+  }

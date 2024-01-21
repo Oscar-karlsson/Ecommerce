@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
+
 const API_ENDPOINT = 'https://js2-ecommerce-api.vercel.app/api/products'; 
 
 const ProductPage = () => {
@@ -17,8 +19,20 @@ const ProductPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
 
 
+  
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    if (e.key === 'Enter') {
+      navigate(`/search?query=${searchTerm}`);
+    }
+  };
   
 
   // Fetch all products when the component mounts
@@ -40,14 +54,13 @@ const ProductPage = () => {
         setIsLoading(false);
       }
     };
+
   
     fetchProducts();
   }, []);
 
 
 
-
-  
 
   
 
@@ -84,6 +97,13 @@ const ProductPage = () => {
 
   return (
     <div className={styles.page}>
+          <input 
+      type="text" 
+      value={searchTerm} 
+      onChange={handleSearchChange} 
+      onKeyPress={handleSearchSubmit} 
+      placeholder="Search products..." 
+    />
       <h1>{selectedCategory ? capitalizeFirstLetter(selectedCategory) : 'Alla Kategorier'}</h1>
 
       <select className={styles.dropdown} value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
