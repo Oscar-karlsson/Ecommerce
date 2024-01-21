@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 2rem;
   background-color: #F5F5F5; 
   color: #333333;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -23,7 +23,7 @@
 
 .searchBar {
   flex-grow: 1;
-  margin:  0 1rem;
+  margin:  0 2rem;
 }
 
 .navbarIcons {
@@ -37,6 +37,7 @@
 .navbarIcons a {
   color: inherit;
   text-decoration: none;
+
 }
 
 .navbarIcons a:hover {
@@ -98,16 +99,31 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+  position: relative;
+  
 }
 
 .navbarLinks a {
+  display: block;
   color: #757575;
+  font-weight: 900;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .navbarLinks a:hover {
   color: #9e9e9e;
+  transform: scale(1.01);
+}
+
+
+
+
+
+@media screen and (max-width: 1200px) {
+.searchBar {
+  margin: 0 1rem;
+}
 }
 
 @media screen and (max-width: 768px) {

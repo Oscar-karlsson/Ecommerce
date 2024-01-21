@@ -4,6 +4,7 @@
     display: flex;
     flex-grow: 1;
   }
+
   
   .searchBar input {
     padding: 10px;
@@ -34,6 +35,43 @@
   cursor: pointer;
 }
 
+.searchResults {
+  position: absolute;
+  top: 100%; /* This will push the search results down by the full height of the .searchBar div */
+  width: 100%;
+  max-height: 250px;
+  overflow-y: hidden;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 10;
+}
+.searchResults a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+.productItemWrapper {
+  border-bottom: 1px solid #ccc;
+}
+
+.productItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.productItem:hover {
+  transform: scale(1.01);
+}
+
+.productImage {
+  width: 50px;
+  align-items: center;
+  flex-shrink: 0;
+}
 
 /* Responsive layout - when the screen is less than 600px wide, make the search input box go full width */
 @media screen and (max-width: 600px) {
@@ -46,3 +84,4 @@
   }
   
 }
+
