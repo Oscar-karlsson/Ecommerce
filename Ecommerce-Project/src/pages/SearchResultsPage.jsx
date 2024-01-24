@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './ProductPage.module.css';
 import productStyles from '../components/Product.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import Loading from '../components/Loading';
+import { CartContext } from '../context/CartContext';
 
 const INITIAL_VISIBLE_COUNT = 10;
 
@@ -16,6 +18,7 @@ const SearchResultsPage = () => {
     const searchParams = new URLSearchParams(location.search);
     const searchTerm = searchParams.get('query');
     const navigate = useNavigate();
+    const { addToCart } = useContext(CartContext);
   
     useEffect(() => {
         setIsLoading(true);
@@ -45,6 +48,11 @@ const SearchResultsPage = () => {
       const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
       };
+
+      const handleAddToCart = (product, e) => {
+        e.stopPropagation(); // Prevents the click from triggering the navigation
+        addToCart(product); // Add the product to the cart
+    };
     
       const loadMore = () => {
         setVisible(prevVisible => prevVisible + 10);
@@ -52,9 +60,9 @@ const SearchResultsPage = () => {
   
 
   
-    if (isLoading) {
-      return <div>Loading...</div>;
-    }
+      if (isLoading) {
+        return <Loading />;
+      }
   
     if (error) {
         <div>Error: {error.message}</div>
@@ -62,11 +70,9 @@ const SearchResultsPage = () => {
   
     return (
         <div>
-          {isLoading ? (
-            <div>Loading...</div>
-          ) : error ? (
-            <div>Error: {error.message}</div>
-          ) : (
+        {error ? (
+          <div>Error: {error.message}</div>
+        ) : (
             <div className={styles.productsContainer}>
             <div className={styles.productsGrid}>
               {products.slice(0, visible).map(product => (
@@ -78,9 +84,9 @@ const SearchResultsPage = () => {
                   </div>
                   <div className={productStyles.priceAndButtonContainer}>
                     <p className={productStyles.productPrice}>{product.price} kr</p>
-                    <button className={productStyles.addToCartButton} onClick={(e) => { e.stopPropagation(); /* handleAddToCart function here */ }}>
-                      <FontAwesomeIcon icon={faShoppingCart} />
-                    </button>
+                    <button className={productStyles.addToCartButton} onClick={(e) => handleAddToCart(product, e)}>
+                                <FontAwesomeIcon icon={faShoppingCart} />
+                            </button>
                   </div>
                 </div>
               ))}

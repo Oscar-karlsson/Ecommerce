@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './ProductPage.module.css';
 import productStyles from '../components/Product.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../components/Loading';
+import { CartContext } from '../context/CartContext';
 
 
 
 
 
 const API_ENDPOINT = 'https://js2-ecommerce-api.vercel.app/api/products'; 
+const INITIAL_VISIBLE_COUNT = 10;
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -20,7 +23,10 @@ const ProductPage = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
-
+  const [visible, setVisible] = useState(INITIAL_VISIBLE_COUNT);
+  const { addToCart } = useContext(CartContext);
+  
+  
 
   
 
@@ -55,7 +61,6 @@ const ProductPage = () => {
       }
     };
 
-  
     fetchProducts();
   }, []);
 
@@ -69,10 +74,10 @@ const ProductPage = () => {
     navigate(`/product/${productId}`);
   };
 
-  const handleAddToCart = (e) => {
+  const handleAddToCart = (product, e) => {
     e.stopPropagation(); // Prevents the click from triggering the navigation
-    // Add to cart logic here
-  };
+    addToCart(product); // Add the product to the cart
+};
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -88,7 +93,7 @@ const ProductPage = () => {
   }, [selectedCategory, products]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
@@ -113,6 +118,7 @@ const ProductPage = () => {
         ))}
       </select>
             
+     
       <div className={styles.productsGrid}>
         {filteredProducts.map(product => (
           <div key={product._id} className={productStyles.productCard} onClick={() => handleProductClick(product._id)}>
@@ -123,9 +129,9 @@ const ProductPage = () => {
             </div>
             <div className={productStyles.priceAndButtonContainer}>
               <p className={productStyles.productPrice}>{product.price} kr</p>
-              <button className={productStyles.addToCartButton} onClick={(e) => { e.stopPropagation(); /* handleAddToCart function here */ }}>
-                <FontAwesomeIcon icon={faShoppingCart} />
-              </button>
+              <button className={productStyles.addToCartButton} onClick={(e) => handleAddToCart(product, e)}>
+                                <FontAwesomeIcon icon={faShoppingCart} />
+                            </button>
             </div>
           </div>
         ))}
@@ -133,5 +139,6 @@ const ProductPage = () => {
     </div>
   );
 };
+
 
 export default ProductPage;

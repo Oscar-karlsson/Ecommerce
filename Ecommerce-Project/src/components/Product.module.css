@@ -93,4 +93,10 @@
 
   
 
- 
+ /* Media query for screens smaller than 600px */
+@media (max-width: 600px) {
+  .productCard {
+    width: 350px;
+    height: auto;
+  }
+}

@@ -31,7 +31,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const cartItemCount = 99; // Replace with dynamic data later
+  const cartItemCount = 0; // Replace with dynamic data later
 
   return (
     <nav className={styles.navbar}>
