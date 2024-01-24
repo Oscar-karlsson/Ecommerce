@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css'; 
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import productListStyles from './ProductList.module.css';
 import styles from './Product.module.css';
+import { CartContext } from '../context/CartContext';
 
 const NextArrow = ({ onClick }) => (
   <div
@@ -46,6 +47,7 @@ const LatestProducts = ({ products }) => {
     // Get the 5 latest products
     const latestProducts = products.slice(0, 10);
     const navigate = useNavigate();
+    const { addToCart } = useContext(CartContext);
 
     const settings = {
       dots: true,
@@ -94,28 +96,30 @@ const LatestProducts = ({ products }) => {
               navigate(`/product/${product._id}`);
             };
 
-            const handleAddToCart = (e) => {
-              e.stopPropagation(); // Prevents the click from triggering the navigation
-              // Add to cart logic here
-            };
+            const handleAddToCart = (product, e) => {
+              e.stopPropagation(); // Prevents the click from triggering any parent onClick events
+              addToCart(product); // Add the product to the cart
+          };
 
             return (
-              <div className={styles.carouselContainer}>
-              <div key={product._id} className={styles.productCard} onClick={handleProductClick}>
-                <img src={imageUrl} alt={product.name} />
-                <div className={styles.titleAndDescriptionContainer}>
-                  <h3>{product.name}</h3>
-                  <p className={styles.productDescription}>{product.description}</p>
-                </div>
-                <div className={styles.priceAndButtonContainer}>
-                  <p className={styles.productPrice}>{product.price} kr</p>
-                  <button className={styles.addToCartButton} onClick={handleAddToCart}>
-                    <FontAwesomeIcon icon={faShoppingCart} />
-                  </button>
+              <div key={product._id} className={styles.carouselContainer}>
+                <div className={styles.productCard} onClick={handleProductClick}>
+                  <img src={imageUrl} alt={product.name} />
+                  <div className={styles.titleAndDescriptionContainer}>
+                    <h3>{product.name}</h3>
+                    <p className={styles.productDescription}>{product.description}</p>
+                  </div>
+                  <div className={styles.priceAndButtonContainer}>
+                    <p className={styles.productPrice}>{product.price} kr</p>
+                    <button 
+                                        className={styles.addToCartButton} 
+                                        onClick={(e) => handleAddToCart(product, e)}>
+                                        <FontAwesomeIcon icon={faShoppingCart} />
+                                    </button>
+                  </div>
                 </div>
               </div>
-              </div>
-            );
+            )
           })}
         </Slider>
       </div>

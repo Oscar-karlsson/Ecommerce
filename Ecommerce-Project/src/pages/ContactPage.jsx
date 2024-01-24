@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styles from './ContactPage.module.css'; // Assuming you have a CSS module for this component
+import styles from './ContactPage.module.css'; 
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });

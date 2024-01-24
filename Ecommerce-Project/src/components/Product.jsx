@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from 'react';
 import styles from "./Product.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from "../context/CartContext";
 
 
 
@@ -10,6 +11,8 @@ import { useNavigate } from 'react-router-dom';
 const Product = ({ product }) => {
   const imageUrl = product.images.length > 0 ? product.images[0] : '/path-to-default-image.jpg';
   const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext);
+
   
 
     const handleProductClick = () => {
@@ -19,8 +22,9 @@ const Product = ({ product }) => {
 
     const handleAddToCart = (e) => {
       e.stopPropagation(); // Prevents the click from triggering the navigation
-      // Add to cart logic here
+      addToCart(product); // Add the product to the cart
     };
+  
 
     return (
       <div className={styles.carouselContainer}>
