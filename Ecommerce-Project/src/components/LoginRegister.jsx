@@ -20,10 +20,10 @@
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faLinkedinIn} /></a>
             </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input type="email" className={styles.loginRegisterInput} placeholder="Email" />
+            <input type="password" className={styles.loginRegisterInput} placeholder="Password" />
             <a href="#" className={styles.forgotPassword}>Forgot your password?</a>
-            <button>Sign In</button>
+            <button className={styles.loginRegisterButton}>Sign In</button>
           </form>
         </div>
   
@@ -37,11 +37,11 @@
 <a href="#" className={styles.social}><FontAwesomeIcon icon={faLinkedinIn} /></a>
             </div>
             <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <input type="password" placeholder="Repeat Password" />
-            <button>Sign Up</button>
+            <input type="text" className={styles.loginRegisterInput} placeholder="Name" />
+            <input type="email" className={styles.loginRegisterInput} placeholder="Email" />
+            <input type="password" className={styles.loginRegisterInput} placeholder="Password" />
+            <input type="password" className={styles.loginRegisterInput} placeholder="Repeat Password" />
+            <button className={styles.loginRegisterButton}>Sign Up</button>
           </form>
         </div>
   
@@ -51,12 +51,12 @@
             <div className={styles.overlayPanel} style={{ left: '0' }}>
               <h1>Welcome Back!</h1>
               <p>To keep connected with us please login with your personal info</p>
-              <button className={styles.ghost} onClick={() => setIsRightPanelActive(false)}>Sign In</button>
+              <button className={`${styles.loginRegisterButton} ${styles.ghost}`} onClick={() => setIsRightPanelActive(false)}>Sign In</button>
             </div>
             <div className={styles.overlayPanel} style={{ right: '0' }}>
               <h1>Hello, Friend!</h1>
               <p>Enter your personal details and start journey with us</p>
-              <button className={styles.ghost} onClick={() => setIsRightPanelActive(true)}>Sign Up</button>
+              <button className={`${styles.loginRegisterButton} ${styles.ghost}`} onClick={() => setIsRightPanelActive(true)}>Sign Up</button>
             </div>
           </div>
         </div>
