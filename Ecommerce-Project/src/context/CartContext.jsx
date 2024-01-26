@@ -1,26 +1,46 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const CartContext = createContext();
 
+
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([]);
+    // Initialize the cart from local storage
+    const [cart, setCart] = useState(() => {
+        const localData = localStorage.getItem('cart');
+        return localData ? JSON.parse(localData) : [];
+    });
+    
 
-    const addToCart = (product) => {
-        setCart(prevCart => {
-            // Check if the product is already in the cart
-            const isProductInCart = prevCart.some(item => item.id === product._id);
+// useEffect for updating local storage when cart changes
+useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}, [cart]);
+    
 
-            if (isProductInCart) {
-                // Increase the quantity
-                return prevCart.map(item =>
-                    item.id === product._id ? { ...item, quantity: item.quantity + 1 } : item
-                );
-            } else {
-                // Add the new product to the cart with quantity set to 1
-                return [...prevCart, { ...product, id: product._id, quantity: 1 }];
-            }
+const addToCart = (productToAdd) => {
+    setCart(prevCart => {
+      // Ensure productToAdd.quantity is a number
+      const quantityToAdd = Number(productToAdd.quantity) || 1; // Default to 1 if not a number
+  
+      const existingProductIndex = prevCart.findIndex(item => item.id === productToAdd._id);
+  
+      if (existingProductIndex >= 0) {
+        // Product is already in the cart, update the quantity
+        const updatedCart = prevCart.map((item, index) => {
+          if (index === existingProductIndex) {
+            // Ensure item.quantity is a number
+            const currentQuantity = Number(item.quantity) || 0;
+            return { ...item, quantity: currentQuantity + quantityToAdd };
+          }
+          return item;
         });
-    };
+        return updatedCart;
+      } else {
+        // Product is not in the cart, add it
+        return [...prevCart, { ...productToAdd, id: productToAdd._id, quantity: quantityToAdd }];
+      }
+    });
+  };
 
     const removeFromCart = (productId) => {
         setCart(currentCart => currentCart.filter(item => item.id !== productId));
@@ -35,8 +55,8 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
-            {children}
-        </CartContext.Provider>
+      <CartContext.Provider value={{ cart, setCart, addToCart, removeFromCart, updateQuantity }}>
+      {children}
+  </CartContext.Provider>
     );
 };

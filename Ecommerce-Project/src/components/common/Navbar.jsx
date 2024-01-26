@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from './Navbar.module.css';
 import SearchBar from '../SearchBar';
+import { CartContext } from '../../context/CartContext';
 
 
 
@@ -27,11 +28,18 @@ const Navbar = () => {
     };
   }, []);
 
+
+  const { cart } = useContext(CartContext);
+
+const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+const [key, setKey] = useState(0);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const cartItemCount = 0; // Replace with dynamic data later
+  
 
   return (
     <nav className={styles.navbar}>
@@ -46,13 +54,13 @@ const Navbar = () => {
   
         <div className={styles.rightSide}>
           <div className={styles.navbarIcons}>
-            <Link to="/account">
+            <Link to="/login">
               <FontAwesomeIcon icon={faUser} />
             </Link>
             <Link to="/cart" className={styles.cartIcon}>
               <FontAwesomeIcon icon={faShoppingCart} />
               {cartItemCount > 0 && (
-                <span className={styles.cartItemCount}>99+</span>
+                <span className={styles.cartItemCount}>{cartItemCount > 99 ? '99+' : cartItemCount}</span>
               )}
             </Link>
           </div>

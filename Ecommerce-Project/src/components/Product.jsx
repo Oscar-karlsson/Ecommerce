@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from "./Product.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +12,7 @@ const Product = ({ product }) => {
   const imageUrl = product.images.length > 0 ? product.images[0] : '/path-to-default-image.jpg';
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
-
+const [isAdded, setIsAdded] = useState(false);
   
 
     const handleProductClick = () => {

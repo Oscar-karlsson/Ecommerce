@@ -1,10 +1,11 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from './ProductDetail.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from '../context/CartContext';
 
 
 
@@ -16,6 +17,7 @@ const ProductDetail = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalImage, setModalImage] = useState('');
     const modalRef = useRef();
+    const { addToCart } = useContext(CartContext);
     
 
     const openModal = (image) => {
@@ -77,8 +79,12 @@ const ProductDetail = () => {
   
       const handleAddToCart = (e) => {
         e.stopPropagation(); // Prevents the click from triggering the navigation
-        // Add to cart logic here
-      };
+        const productToAdd = {
+            ...product,
+            quantity: parseInt(quantity) // Ensure quantity is included and correctly formatted
+        };
+        addToCart(productToAdd); // Add the product to the cart
+    };
   
     if (!product) {
       return <div>Loading...</div>;
@@ -111,9 +117,9 @@ const ProductDetail = () => {
         className={styles.quantityInput} 
       />
       <button className={styles.increment} onClick={handleIncrement}>+</button>
-                 <button className={styles.addToCartButton} onClick={handleAddToCart}>
-              <FontAwesomeIcon icon={faShoppingCart} />
-            </button>
+   <button className={styles.addToCartButton} onClick={(e) => handleAddToCart(e)}>
+    <FontAwesomeIcon icon={faShoppingCart} />
+</button>
             </div>
           </div>
         </div>
