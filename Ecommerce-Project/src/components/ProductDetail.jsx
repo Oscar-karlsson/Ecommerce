@@ -84,6 +84,7 @@ const ProductDetail = () => {
             quantity: parseInt(quantity) // Ensure quantity is included and correctly formatted
         };
         addToCart(productToAdd); // Add the product to the cart
+        setQuantity(1);
     };
   
     if (!product) {

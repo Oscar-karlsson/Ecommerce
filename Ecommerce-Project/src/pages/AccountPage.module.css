@@ -1,5 +1,7 @@
 /* Layout and Container */
 .container {
+    display: flex;
+    justify-content: space-between;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -11,7 +13,31 @@
     margin: 30px auto;
 }
 
+.accountStyles h1 {
+    margin-left: auto;
+}
 
+.leftPanel {
+    width: 30%;
+   margin: 2rem 0 0 2rem;
+}
+
+.rightPanel {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.info {
+    align-self: flex-end;
+}
+
+.info h1 {
+    margin-left: auto;
+}
 
 /* Forms and Inputs */
 .formContainer {
@@ -55,6 +81,9 @@
     transition: transform 80ms ease-in;
     cursor: pointer;
     margin-top: 1rem;
+    width: 200px; 
+    height: 50px;
+    align-self: flex-start;
 }
 
 .loginRegisterButton.ghost {
@@ -66,12 +95,11 @@
     margin-bottom: 20px; /* Adjust as needed */
     text-decoration: none;
     color: #333333;
-  }
+}
 
-  .forgotPassword:hover {
+.forgotPassword:hover {
     text-decoration: underline;
-  }
- 
+}
 
 /* Overlay Styles */
 .overlayContainer {
@@ -117,9 +145,7 @@
     width: 50%;
     z-index: 2;
     transform: translateX(0);
-  }
-  
- 
+}
 
 /* Toggle classes */
 .rightPanelActive .signInContainer {
@@ -158,8 +184,6 @@
     width: 40px;
 }
 
-
-
 /* Responsive Styles */
 @media (max-width: 600px) {
     .container {
@@ -176,11 +200,7 @@
     }
 }
 
-
-
-
 /* My account */
-
-/* .active {
+.active {
     background-color: #ddd;
-  } */
+}
