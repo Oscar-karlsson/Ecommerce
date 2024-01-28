@@ -14,11 +14,19 @@ import { CartProvider } from './context/CartContext';
 import CheckoutPage from './pages/CheckoutPage';
 import ThankYouPage from './pages/ThankYouPage';
 import LoginRegister from './components/LoginRegister';
+import AccountPage from './pages/AccountPage';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import ProtectedRoute from './utils/ProtectedRoute';
+
+
 
 
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+
+
+  
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -27,7 +35,11 @@ function App() {
 
     return () => clearTimeout(timer); // Clean up the timer
   }, []);
+
+
+
   return (
+    <AuthProvider>
     <CartProvider>
     <Router>
       <Navbar />
@@ -42,6 +54,7 @@ function App() {
         <Route path="/alla-produkter/" element={<ProductPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/login" element={<LoginRegister />} />
+        <Route path="/account" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
         <Route path="/search" element={<SearchResultsPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
@@ -53,6 +66,7 @@ function App() {
       )}
     </Router>
     </CartProvider>
+    </AuthProvider>
   );
 }
 

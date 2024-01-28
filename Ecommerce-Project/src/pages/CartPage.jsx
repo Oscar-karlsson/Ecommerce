@@ -13,7 +13,7 @@ const CartPage = () => {
   const navigate = useNavigate();
   const [isShippingDifferent, setIsShippingDifferent] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const [userToken, setUserToken] = useState(null);
+  const userToken = localStorage.getItem('token');
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   
 

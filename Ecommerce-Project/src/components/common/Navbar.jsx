@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from './Navbar.module.css';
 import SearchBar from '../SearchBar';
 import { CartContext } from '../../context/CartContext';
-
+import { AuthProvider, useAuth } from '../../context/AuthContext';
 
 
 
@@ -14,10 +14,20 @@ import { CartContext } from '../../context/CartContext';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const node = useRef();
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth(); // Get isLoggedIn from useAuth
 
   const handleClickOutside = (e) => {
     if (node.current && !node.current.contains(e.target)) {
       setIsOpen(false);
+    }
+  };
+
+  const handleAccountIconClick = () => {
+    if (isLoggedIn) {
+      navigate('/account');
+    } else {
+      navigate('/login');
     }
   };
 
@@ -54,9 +64,7 @@ const [key, setKey] = useState(0);
   
         <div className={styles.rightSide}>
           <div className={styles.navbarIcons}>
-            <Link to="/login">
-              <FontAwesomeIcon icon={faUser} />
-            </Link>
+          <FontAwesomeIcon icon={faUser} onClick={handleAccountIconClick} />
             <Link to="/cart" className={styles.cartIcon}>
               <FontAwesomeIcon icon={faShoppingCart} />
               {cartItemCount > 0 && (
