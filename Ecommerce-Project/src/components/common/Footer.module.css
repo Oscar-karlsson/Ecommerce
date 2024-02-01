@@ -16,8 +16,6 @@
 
 .footerSection h4 {
   margin-bottom: 10px;
-  cursor: pointer;
-  
 }
 
 
@@ -71,15 +69,14 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: 2rem;
 }
 
 
 
-.footerSection h4 .arrowIcon {
-  display: none; /* Hide arrow icon by default */
-}
 
-@media (max-width: 992px) {
+
+@media (max-width: 768px) {
   .footerSection {
     flex: 1 1 100%;
     margin-bottom: 20px;
@@ -88,7 +85,9 @@
     align-items: flex-start;
   }
 
-
+  .footerSection h4 {
+    cursor: pointer;
+  }
 
   .logo {
     margin: auto;

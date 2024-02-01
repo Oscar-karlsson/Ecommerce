@@ -63,7 +63,7 @@
 }
 
 .forgotPassword {
-    margin-bottom: 20px; /* Adjust as needed */
+    margin-top: 1rem; /* Adjust as needed */
     text-decoration: none;
     color: #333333;
   }
@@ -160,27 +160,62 @@
 
 
 
-/* Responsive Styles */
-@media (max-width: 600px) {
+.errorMessage {
+    color: firebrick; /* Make the text color red */
+    font-size: 1rem; /* Reduce the font size */
+    margin-top: 3px; /* Add some space above the message */
+  }
+
+
+
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
     .container {
+        flex-direction: column;
+      }
+    
+      .form-container {
         width: 100%;
-        min-height: 550px;
-    }
-
-    .overlayContainer, .overlay {
+        padding: 20px;
+        box-sizing: border-box;
+      }
+    
+      .sign-in-container,
+      .sign-up-container {
+        order: 2;
+        margin-bottom: 20px;
+      }
+    
+      .overlay-container {
+        display: none;
+      }
+    
+      .container.right-panel-active .sign-in-container,
+      .container.right-panel-active .sign-up-container {
+        transform: translateX(0);
+      }
+      .loginRegisterInput {
         width: 100%;
+        height: 30px;
+      }
+    
+    
+    
+      h1, p, span {
+        font-size: 14px;
+      }
+
+      .socialContainer a {
+        height: 20px;
+        width: 20px;
+        font-size: 12px;
     }
+      }
+    
+  
+    
+     
+     
 
-    .formContainer {
-        width: 100%;
-    }
-}
-
-
-
-
-/* My account */
-
-/* .active {
-    background-color: #ddd;
-  } */
+  

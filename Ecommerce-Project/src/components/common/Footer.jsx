@@ -16,7 +16,7 @@ const Footer = () => {
 
     useEffect(() => {
         const checkScreenSize = () => {
-            setIsSmallScreen(window.innerWidth < 992);
+            setIsSmallScreen(window.innerWidth < 768);
             setShowSection({ accounts: !isSmallScreen, information: !isSmallScreen, service: !isSmallScreen });
         };
 

@@ -14,20 +14,17 @@ const ProductDetail = () => {
     const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1); // State to manage quantity
     const { id } = useParams();
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [modalImage, setModalImage] = useState('');
+    const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
     const modalRef = useRef();
     const { addToCart } = useContext(CartContext);
+    const [mainImage, setMainImage] = useState('');
     
 
-    const openModal = (image) => {
-      setModalImage(image);
-      setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-      setIsModalOpen(false);
-    };
+    useEffect(() => {
+      if (product && product.images.length > 0) {
+        setMainImage(product.images[0]);
+      }
+    }, [product]);
 
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -95,45 +92,43 @@ const ProductDetail = () => {
       <div className={styles.productDetails}>
         <div className={styles.imageContainer}>
           <div className={styles.mainImageContainer}>
-            <img src={product.images[0]} alt={product.name} className={styles.mainImage} />
+            <img src={mainImage} alt={product.name} className={styles.mainImage} />
           </div>
           <div className={styles.thumbnailContainer}>
-            {product.images.slice(1).map((image, index) => (
-              <img key={index} src={image} alt={`Thumbnail ${index}`} className={styles.thumbnailImage} onClick={() => openModal(image)} />
+            {product.images.map((image, index) => (
+              <img key={index} src={image} alt={`Thumbnail ${index}`} className={styles.thumbnailImage} onClick={() => setMainImage(image)} />
             ))}
           </div>
         </div>
         <div className={styles.productInfo}>
           <h1 className={styles.productName}>{product.name}</h1>
-          <p className={styles.productDescription}>{product.description}</p>
+          <p className={styles.productDescription}>
+  {isDescriptionExpanded ? product.description : `${product.description.substring(0, 500)}...`}
+</p>
+<button className={styles.readMoreBtn} onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}>
+  {isDescriptionExpanded ? 'Read Less' : 'Read More'}
+</button>
           <div className={styles.actionRow}>
             <p className={styles.productPrice}>{product.price} kr</p>
-         <div className={styles.quantityAndButton}>
-      <button className={styles.decrement} onClick={handleDecrement}>-</button>
-      <input 
-        type="number" 
-        min="1" 
-        value={quantity} 
-        onChange={handleQuantityChange} 
-        className={styles.quantityInput} 
-      />
-      <button className={styles.increment} onClick={handleIncrement}>+</button>
-   <button className={styles.addToCartButton} onClick={(e) => handleAddToCart(e)}>
-    <FontAwesomeIcon icon={faShoppingCart} />
-</button>
+            <div className={styles.quantityAndButton}>
+              <button className={styles.decrement} onClick={handleDecrement}>-</button>
+              <input 
+                type="number" 
+                min="1" 
+                value={quantity} 
+                onChange={handleQuantityChange} 
+                className={styles.quantityInput} 
+              />
+              <button className={styles.increment} onClick={handleIncrement}>+</button>
+              <button className={styles.addToCartButton} onClick={handleAddToCart}>
+                <FontAwesomeIcon icon={faShoppingCart} />
+              </button>
             </div>
           </div>
         </div>
-        {isModalOpen && (
-    <div className={styles.modalBackdrop} onClick={closeModal}>
-      <div className={styles.modal} ref={modalRef} onClick={e => e.stopPropagation()}>
-        <span className={styles.closeModal} onClick={closeModal}>&times;</span>
-        <img src={modalImage} alt="Modal" className={styles.modalContent} />
       </div>
-    </div>
-        )}
-      </div>
-    );};
+    );
+  };
 
 
   export default ProductDetail;
