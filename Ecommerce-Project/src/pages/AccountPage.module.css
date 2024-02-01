@@ -184,23 +184,35 @@
     width: 40px;
 }
 
-/* Responsive Styles */
-@media (max-width: 600px) {
-    .container {
-        width: 100%;
-        min-height: 550px;
-    }
 
-    .overlayContainer, .overlay {
-        width: 100%;
-    }
-
-    .formContainer {
-        width: 100%;
-    }
-}
 
 /* My account */
 .active {
     background-color: #ddd;
+}
+
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        
+        width: 80%;
+    }
+
+    .leftPanel {
+        width: 100%;
+        margin: 5rem  0 0 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .loginRegisterButton {
+        padding: 20px; /* Adjust as needed */
+        width: auto; /* Adjust as needed */
+      }
+
+    .buttonText {
+        display: none;
+      }
 }

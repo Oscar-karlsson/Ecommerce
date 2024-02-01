@@ -28,7 +28,12 @@ const ProductPage = () => {
   const { addToCart } = useContext(CartContext);
   
   
-
+  const handleCategoryChange = (selectedCategories) => {
+    const filteredProducts = selectedCategories.includes('All') 
+      ? products 
+      : products.filter(product => selectedCategories.includes(product.category));
+    setFilteredProducts(filteredProducts);
+  };
   
 
   const handleSearchChange = (e) => {
@@ -103,23 +108,9 @@ const ProductPage = () => {
 
   return (
     <div className={styles.page}>
-          <input 
-      type="text" 
-      value={searchTerm} 
-      onChange={handleSearchChange} 
-      onKeyPress={handleSearchSubmit} 
-      placeholder="Search products..." 
-    />
-      <h1>{selectedCategory ? capitalizeFirstLetter(selectedCategory) : 'Alla Kategorier'}</h1>
+         
 
-      <select className={styles.dropdown} value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
-        <option value="">Alla Kategorier</option>
-        {categories.map(category => (
-          <option key={category} value={category}>{capitalizeFirstLetter(category)}</option>
-        ))}
-      </select>
-
-      <CategoryFilter/>
+      <CategoryFilter onCategoryChange={handleCategoryChange} />
             
      
       <div className={styles.productsGrid}>
