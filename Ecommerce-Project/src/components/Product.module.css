@@ -96,7 +96,8 @@
  /* Media query for screens smaller than 600px */
 @media (max-width: 600px) {
   .productCard {
-    width: 350px;
+    width: 250px;
     height: auto;
+    margin: 0 auto;
   }
 }

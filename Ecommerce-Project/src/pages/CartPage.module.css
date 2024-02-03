@@ -244,60 +244,7 @@
   width: 35%;
 }
 
-@media only screen and (max-width: 39.375em) {
-  .wrap {
-    width: 98%;
-    padding: 2% 0;
-  }
 
-  .projTitle {
-    font-size: 1.5em;
-    padding: 10% 5%;
-  }
-
-  .heading {
-    padding: 1em;
-    font-size: 90%;
-  }
-
-  .cart .itemsOdd, .cart .itemsEven {
-    .cartSection {
-      width: 90%;
-      float: left;
-    }
-
-    .cartSection.qtyWrap {
-      width: 10%;
-      text-align: center;
-      padding: .5em 0;
-      float: right;
-    }
-
-    .cartSection.qtyWrap:before {
-      content: "QTY";
-      display: block;
-      padding: .25em;
-      font-size: .75em;
-    }
-
-    .cartSection.prodTotal, .cartSection.removeWrap {
-      display: none;
-    }
-
-    .cartSection .itemImg {
-      width: 25%;
-    }
-  }
-
-  .promoCode, .subtotal {
-    width: 100%;
-  }
-
-  .btn.continue {
-    width: 100%;
-    text-align: center;
-  }
-}
 
 
 
@@ -536,4 +483,98 @@ height: 50vh;
   color: #666;
   margin-bottom: 20px;
 }
+
+.prodTotalRemoveWrap {
+  display: flex;
+ 
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    padding: 10px;
+    width: 95%;
+  }
+  .projTitle {
+    font-size: 1.5em;
+    padding: 10% 5%;
+  }
+  
+  .heading {
+    padding: 1em;
+    font-size: 90%;
+  }
+  .continue {
+    text-align: center;
+  }
+
+  .itemInfo {
+    margin-left: 0;
+  }  
+
+  .prodTotalRemoveWrap {
+    display: flex;
+    flex-direction: column;
+    margin-right: -3rem;
+    justify-content: space-between;
+  }
+
+  .itemTotal {
+    float: none; 
+    text-align: left; 
+  }
+  
+  .itemImg {
+    display: none;
+  }
+  .qty {
+    width: 30px; /* Adjust as needed */
+    height: 30px; /* Adjust as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .stockStatus {
+    margin-left: -1rem;
+  }
+
+  .prodTotal {
+    font-size: 0.8em; /* Adjust as needed */
+    white-space: nowrap; /* Prevent the total price from wrapping */
+  }
+
+  .removeItem {
+    display: block; /* Make the "x" icon a block element */
+    float: none; /* Remove any float */
+    text-align: left; /* Align the "x" icon to the left */
+    margin-top: 10px; /* Add some space above the "x" icon */
+  }
+
+  .checkoutArea {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .promoCode {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .summary {
+    width: 100%;
+  }
+
+  .checkout {
+    width: 100%;
+  }
+
+  .cart .itemsOdd .cartSection, .cart .itemsEven .cartSection {
+    width: 95%;
+    float: left;
+  }
+}
+
+
+
 

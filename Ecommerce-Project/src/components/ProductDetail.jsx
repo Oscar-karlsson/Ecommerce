@@ -103,11 +103,13 @@ const ProductDetail = () => {
         <div className={styles.productInfo}>
           <h1 className={styles.productName}>{product.name}</h1>
           <p className={styles.productDescription}>
-  {isDescriptionExpanded ? product.description : `${product.description.substring(0, 500)}...`}
-</p>
-<button className={styles.readMoreBtn} onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}>
-  {isDescriptionExpanded ? 'Read Less' : 'Read More'}
-</button>
+          {isDescriptionExpanded || product.description.length <= 500 ? product.description : `${product.description.substring(0, 500)}...`}
+        </p>
+        {product.description.length > 500 && (
+          <button className={styles.readMoreBtn} onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}>
+            {isDescriptionExpanded ? 'Read Less' : 'Read More'}
+          </button>
+        )}
           <div className={styles.actionRow}>
             <p className={styles.productPrice}>{product.price} kr</p>
             <div className={styles.quantityAndButton}>

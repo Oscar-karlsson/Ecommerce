@@ -66,9 +66,13 @@ const toggleMenu = () => {
 return (
   <nav className={styles.navbar}>
     <div className={styles.topRow}>
-      <NavLink to="/" className={styles.logo}>
-        <img src="../src/assets/logo-text.png" alt="TechStore Logo" style={{ height: '50px', width: 'auto' }} />
-      </NavLink>
+    <NavLink to="/" className={styles.logo}>
+  <img 
+    src={window.innerWidth <= 375 ? "../src/assets/logo.png" : "../src/assets/logo-text.png"} 
+    alt="TechStore Logo" 
+    style={{ height: '50px', width: 'auto' }} 
+  />
+</NavLink>
       
       <div className={styles.searchBar}>
         <SearchBar />

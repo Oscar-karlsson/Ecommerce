@@ -129,6 +129,8 @@
 }
 
 @media screen and (max-width: 768px) {
+
+
   .topRow {
     display: flex;
     flex-direction: row;
@@ -140,7 +142,21 @@
   .navbarLinks {
     display: none;
   }
+
+  .logo {
+    max-width: 50px; /* Adjust as needed */
+    max-height: 50px;
+    margin-left: 0;
   
+  }
+  
+  .hamburger {
+    margin-left: -1rem;
+  }
+  .navbarIcons {
+    font-size: 1.2rem;
+    gap: 10px;
+  }
 
   .searchBar {
     width: 100%;
@@ -157,7 +173,6 @@
 
 
   .navbar {
-   
     display: flex;
     justify-content: space-between;
    
