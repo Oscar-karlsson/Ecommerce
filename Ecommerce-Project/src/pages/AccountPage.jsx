@@ -63,7 +63,7 @@ const AccountPage = () => {
         const sortedOrders = [...orders].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         return (
             <div style={{ padding: '20px' }}>
-                <h2 style={{ marginBottom: '20px' }}>Your Orders</h2>
+
                 {sortedOrders.map(order => (
                     <div key={order._id} style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '20px' }}>
                         <p><strong>Order ID:</strong> {order._id}</p>
@@ -103,18 +103,18 @@ const AccountPage = () => {
     return (
         <div className={accountStyles.container}>
             <div className={accountStyles.leftPanel}>
-                <button onClick={() => setView('account')} className={`${accountStyles.loginRegisterButton} ${view === 'account' ? accountStyles.active : ''}`}>
-                    <FontAwesomeIcon icon={faUserEdit} /> Account Details
-                </button>
-                <button onClick={() => setView('orders')} className={`${accountStyles.loginRegisterButton} ${view === 'orders' ? accountStyles.active : ''}`}>
-                    <FontAwesomeIcon icon={faShoppingCart} /> Orders
-                </button>
-                <button onClick={() => setView('edit')} className={`${accountStyles.loginRegisterButton} ${view === 'edit' ? accountStyles.active : ''}`}>
-                    <FontAwesomeIcon icon={faUserEdit} /> Edit Account
-                </button>
-                <button onClick={handleLogout} className={accountStyles.loginRegisterButton}>
-                    <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
-                </button>
+            <button onClick={() => setView('account')} className={`${accountStyles.loginRegisterButton} ${view === 'account' ? accountStyles.active : ''}`}>
+  <FontAwesomeIcon icon={faUserEdit} /><span className={accountStyles.buttonText}> Account Details</span>
+</button>
+<button onClick={() => setView('orders')} className={`${accountStyles.loginRegisterButton} ${view === 'orders' ? accountStyles.active : ''}`}>
+  <FontAwesomeIcon icon={faShoppingCart} /><span className={accountStyles.buttonText}> Orders</span>
+</button>
+<button onClick={() => setView('edit')} className={`${accountStyles.loginRegisterButton} ${view === 'edit' ? accountStyles.active : ''}`}>
+  <FontAwesomeIcon icon={faUserEdit} /><span className={accountStyles.buttonText}> Edit Account</span>
+</button>
+<button onClick={handleLogout} className={accountStyles.loginRegisterButton}>
+  <FontAwesomeIcon icon={faSignOutAlt} /><span className={accountStyles.buttonText}> Log Out</span>
+</button>
             </div>
             <div className={accountStyles.rightPanel}>
                 <h1>{viewNames[view]}</h1>

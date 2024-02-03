@@ -60,6 +60,24 @@
   color: #666;
   font-size: 1em;
 }
+.readMoreBtn {
+  background-color: transparent; /* Transparent background */
+  border: 2px solid #666; /* Dark border */
+  color: #666; /* Dark text */
+  padding: 8px 16px; /* Smaller padding */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9em; /* Smaller font size */
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.readMoreBtn:hover {
+  color: #000; /* Black text on hover */
+  border-color: #000; /* Black border on hover */
+}
 
 .productPrice {
   font-size: 1.5em;
@@ -132,58 +150,44 @@
 }
 
 
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
-
-.modalContent {
-  width: 100%;
-  max-width: 600px; /* Adjust as needed */
-  height: auto;
-}
-
-/* Backdrop styles (optional) */
-.modalBackdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-
-.closeModal {
-  position: absolute;
-  top: 0px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 3rem; /* Adjust size as needed */
-  color: #333; /* Adjust color as needed */
-  z-index: 10;
-}
-
-.closeModal:hover {
-  color: #222;
-}
-
+/* Media Queries */
 
 @media (max-width: 768px) {
-.productInfo {
-margin-right: 1rem;
-}
+  .productDetails {
+    flex-direction: column;
+    align-items: center;
+  }
+  
 
-.actionRow {
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-}
+  
+
+  .imageContainer, .productInfo {
+    flex-basis: 100%;
+  }
+
+  .thumbnailContainer {
+    justify-content: center;
+  }
+
+  .actionRow {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .quantityAndButton {
+    align-items: center;
+    gap: 5px;
+  }
+
+  .quantityInput {
+    width: 30px; /* Adjust as needed */
+    height: 30px; /* Adjust as needed */
+    font-size: 14px; /* Adjust as needed */
+  }
+
+  .addToCartButton {
+    width: 40px;
+    height: 40px;
+  }
 }

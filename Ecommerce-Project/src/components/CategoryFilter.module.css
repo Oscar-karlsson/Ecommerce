@@ -1,15 +1,58 @@
-.searchWrapper {
-    position: relative;
-    /* other styles */
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
 
 .categoryFilter {
-    margin-bottom: 20px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: #f9f9f9;
+}
   
-  .searchContainer {
-    display: flex;
-    align-items: center;
+.toggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 10px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 1.2em;
+}
+
+.categoryItem {
+  display: inline-block;
+  align-items: center;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  font-size: 0.9em;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+  
+  .categoryItem input[type="checkbox"] {
+    margin-right: 5px;
   }
   
   .searchInput {
@@ -21,15 +64,24 @@
   }
   
   .toggleButton {
-    padding: 8px;
-    background: transparent;
+    display: block;
+    margin: 10px 0;
+    background: none;
     border: none;
     cursor: pointer;
   }
   
   .categoryList {
-    list-style-type: none;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 0;
+    list-style: none;
+  }
+
+  .categoryList.visible {
+    display: flex;
+    flex-direction: column;
   }
   
   .categoryList li {
@@ -50,3 +102,31 @@
     /* other styles */
     cursor: pointer;
   }
+
+  .resetButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .resetButton {
+    display: block;
+    margin: 10px 0 10px 20px;
+    padding: 10px 20px; /* Increase padding */
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    width: auto; /* Adjust width */
+  }
+  
+  .resetButton:hover {
+    background-color: #e0e0e0;
+  }
+
+
+  
+  

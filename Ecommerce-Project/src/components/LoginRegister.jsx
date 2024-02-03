@@ -16,7 +16,11 @@ const LoginRegister = () => {
   const [registerError, setRegisterError] = useState(null);
   const navigate = useNavigate();
   const { logIn } = useAuth();
+  const [showSocials, setShowSocials] = useState(false);
   
+  const toggleSocials = () => {
+    setShowSocials(!showSocials);
+  };
 
   // Initial values for registration and login forms
   const initialLoginValues = {
@@ -38,10 +42,15 @@ const LoginRegister = () => {
   });
 
   const registerValidationSchema = Yup.object().shape({
-    name: Yup.string().min(2, 'Name is too short').required('Name is required'),
-    email: Yup.string().email('Invalid email address').required('Email is required'),
+    name: Yup.string()
+      .min(2, 'Name must be at least 2 characters')
+      .required('Name is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
     password: Yup.string()
-      .min(6, 'Password must be at least 6 characters')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
+        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      )
       .required('Password is required'),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref('password'), null], 'Passwords must match')
@@ -105,6 +114,7 @@ const LoginRegister = () => {
             <h1>Sign In</h1>
             <div className={styles.socialContainer}>
               {/* Implement actual authentication logic */}
+              
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faFacebookF} /></a>
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faGooglePlusG} /></a>
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faLinkedinIn} /></a>
@@ -114,8 +124,8 @@ const LoginRegister = () => {
             <ErrorMessage name="email" component="p" className={styles.errorMessage} />
             <Field type="password" name="password" placeholder="Password" className={styles.loginRegisterInput} />
             <ErrorMessage name="password" component="p" className={styles.errorMessage} />
-            <a href="#" className={styles.forgotPassword}>Forgot your password?</a>
             <button type="submit" className={styles.loginRegisterButton}>Sign In</button>
+            <a href="#" className={styles.forgotPassword}>Forgot your password?</a>
           </Form>
         </Formik>
       </div>

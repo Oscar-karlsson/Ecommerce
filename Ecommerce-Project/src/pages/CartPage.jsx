@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styles from './CartPage.module.css'; // Import your CSS module here
 import { CartContext } from '../context/CartContext';
 import SubmitOrderButton from '../components/SubmitOrderButton';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
@@ -17,11 +19,10 @@ const CartPage = () => {
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   
 
-  
 
-  const toggleShippingDifferent = () => {
-    setIsShippingDifferent(!isShippingDifferent);
-  };
+ const toggleShippingDifferent = () => {
+   setIsShippingDifferent(!isShippingDifferent);
+ };
   
   
 
@@ -81,7 +82,7 @@ const [showCheckout, setShowCheckout] = useState(false);
 
   // Calculate Subtotal, Shipping, Tax, and Total
   const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  const shipping = 5.00; // Replace with your shipping cost
+  const shipping = totalPrice > 500 ? 0 : 50;
   const tax = totalPrice * 0.25;
   const total = subtotal + shipping + tax;
 
@@ -102,51 +103,51 @@ const [showCheckout, setShowCheckout] = useState(false);
   return (
     <div className={styles.wrap}>
       <h1 className={styles.projTitle}>
-        Responsive Table<span className={styles.less}>-Less</span> Shopping Cart
+        My<span className={styles.less}>Shopping</span>  Cart
       </h1>
       <div className={styles.heading}>
-        <h1>My Cart</h1>
+        <h1>Review and Checkout</h1>
         <button className={styles.continue} onClick={() => navigate('/')}>Continue Shopping</button>
       </div>
       <div className={styles.cart}>
         <ul className={styles.cartWrap}>
           {cart.map((item) => (
             <li key={item.id} className={styles.itemsOdd}>
-              <div className={styles.infoWrap}>
-                <div className={styles.cartSection}>
-                  <img src={item.images[0]} alt={item.name} className={styles.itemImg} />
-                  <div className={styles.itemInfo}>
-                    <p className={styles.itemNumber}>#QUE-007544-002</p>
-                    <h3>{item.name}</h3>
-                    <div className={styles.priceQty}>
-                      <input
-                        type="text"
-                        className={styles.qty}
-                        value={item.quantity}
-                        onChange={(e) => handleQuantityChange(item.id, e.target.value)}
-                      />
-                      <p>x {item.price.toFixed(2)} kr</p>
-                      {/* Move the stock status here */}
-                      <p className={styles.stockStatus}>In Stock</p>
-                    </div>
-                  </div>
-                  <div className={styles.prodTotal}>
-                    <p>{(item.price * item.quantity).toFixed(2)} kr</p>
-                  </div>
-                  <div className={styles.removeWrap}>
-                    <a
-                      href="#"
-                      className={styles.remove}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleRemoveFromCart(item.id);
-                      }}
-                    >
-                      x
-                    </a>
-                  </div>
-                </div>
-              </div>
+    <div className={styles.infoWrap}>
+  <div className={styles.cartSection}>
+    <img src={item.images[0]} alt={item.name} className={styles.itemImg} />
+    <div className={styles.itemInfo}>                 
+      <h3>{item.name}</h3>
+      <div className={styles.priceQty}>
+        <input
+          type="text"
+          className={styles.qty}
+          value={item.quantity}
+          onChange={(e) => handleQuantityChange(item.id, e.target.value)}
+        />
+        <p>x {item.price.toFixed(2)} kr</p>
+        <p className={styles.stockStatus}>In Stock</p>
+      </div>
+    </div>
+    <div className={styles.prodTotalRemoveWrap}> 
+      <div className={styles.prodTotal}>
+        <p>{(item.price * item.quantity).toFixed(2)} kr</p>
+      </div>
+      <div className={styles.removeWrap}>
+        <a
+          href="#"
+          className={styles.remove}
+          onClick={(e) => {
+            e.preventDefault();
+            handleRemoveFromCart(item.id);
+          }}
+        >
+          <FontAwesomeIcon icon={faTimes} />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
             </li>
           ))}
         </ul>
@@ -154,10 +155,12 @@ const [showCheckout, setShowCheckout] = useState(false);
       <div className={styles.checkoutArea}>
         {/* Promo Code Section */}
         <div className={styles.promoCode}>
-          <label htmlFor="promo">Have A Promo Code?</label>
-          <input type="text" name="promo" placeholder="Enter Code" />
-          <a href="#" className={styles.btn}>Apply</a>
-        </div>
+  <label htmlFor="promo">Have A Promo Code?</label>
+  <div className={styles.inputButtonContainer}>
+    <input type="text" name="promo" placeholder="Enter Code" />
+    <a href="#" className={styles.btn}>Apply</a>
+  </div>
+</div>
   
         {/* Subtotal, Shipping, Tax, Total Display */}
         <div className={styles.summary}>
@@ -177,7 +180,6 @@ const [showCheckout, setShowCheckout] = useState(false);
             <span className={`${styles.label} ${styles.totalLabel}`}>Total</span>
             <span className={styles.value}>{total.toFixed(2)} kr</span>
           </div>
-          {/* Checkout Button */}
           <button className={styles.checkoutButton} onClick={() => setShowCheckout(!showCheckout)}>Checkout</button>
         </div>
       </div>

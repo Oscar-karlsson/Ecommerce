@@ -184,23 +184,53 @@
     width: 40px;
 }
 
-/* Responsive Styles */
-@media (max-width: 600px) {
-    .container {
-        width: 100%;
-        min-height: 550px;
-    }
+.readMoreBtn {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+  
+  .readMoreBtn:hover {
+    background-color: white;
+    color: black;
+  }
 
-    .overlayContainer, .overlay {
-        width: 100%;
-    }
-
-    .formContainer {
-        width: 100%;
-    }
-}
 
 /* My account */
 .active {
     background-color: #ddd;
+}
+
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        
+        width: 80%;
+    }
+
+    .leftPanel {
+        width: 100%;
+        margin: 5rem  0 0 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .loginRegisterButton {
+        padding: 20px; /* Adjust as needed */
+        width: auto; /* Adjust as needed */
+      }
+
+    .buttonText {
+        display: none;
+      }
 }
