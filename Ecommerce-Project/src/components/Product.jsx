@@ -25,23 +25,33 @@ const [isAdded, setIsAdded] = useState(false);
       addToCart(product); // Add the product to the cart
     };
   
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        handleProductClick();
+      }
+    };
 
     return (
       <div className={styles.carouselContainer}>
-        <div className={styles.productCard} onClick={handleProductClick}>
-          <img src={imageUrl} alt={product.name} />
-          <div className={styles.titleAndDescriptionContainer}>
-            <h3>{product.name}</h3>
-            <p className={styles.productDescription}>{product.description}</p>
-          </div>
-          <div className={styles.priceAndButtonContainer}>
-            <p className={styles.productPrice}>{product.price} kr</p>
-            <button className={styles.addToCartButton} onClick={handleAddToCart}>
-              <FontAwesomeIcon icon={faShoppingCart} />
-            </button>
-          </div>
-        </div>
-        </div>
+    <div
+      className={styles.productCard}
+      onClick={handleProductClick}
+      onKeyDown={handleKeyDown}
+      tabIndex="0"
+    >
+      <img src={imageUrl} alt={product.name} />
+      <div className={styles.titleAndDescriptionContainer}>
+        <h3>{product.name}</h3>
+        <p className={styles.productDescription}>{product.description}</p>
+      </div>
+      <div className={styles.priceAndButtonContainer}>
+        <p className={styles.productPrice}>{product.price} kr</p>
+        <button className={styles.addToCartButton} onClick={handleAddToCart}>
+          <FontAwesomeIcon icon={faShoppingCart} />
+        </button>
+      </div>
+    </div>
+  </div>
     );
 };
 

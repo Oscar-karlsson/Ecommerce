@@ -8,16 +8,16 @@ import { useAuth } from '../context/AuthContext';
 
 const AccountPage = () => {
     const navigate = useNavigate();
-    const [view, setView] = useState('account');
-    const [accountDetails, setAccountDetails] = useState(null);
+    const [view, setView] = useState('orders');
+    //const [accountDetails, setAccountDetails] = useState(null);
     const [orders, setOrders] = useState(null);
     const [error, setError] = useState('');
     const { logOut } = useAuth();
 
     const viewNames = {
-        'account': 'Account Details',
+      //  'account': 'Account Details',
         'orders': 'My Orders',
-        'edit': 'Edit Account'
+     //   'edit': 'Edit Account'
     };
 
     useEffect(() => {
@@ -48,12 +48,13 @@ const AccountPage = () => {
         navigate('/login');
     };
 
+    /*
     const renderAccountDetails = () => {
         if (error) return <div>Error: {error}</div>;
         if (!accountDetails) return <div>Loading account details...</div>;
         return <pre>{JSON.stringify(accountDetails, null, 2)}</pre>;
     };
-
+*/
     const renderOrders = () => {
         if (error) return <div>Error: {error}</div>;
         if (!orders) return <div>Loading orders...</div>;
@@ -103,15 +104,21 @@ const AccountPage = () => {
     return (
         <div className={accountStyles.container}>
             <div className={accountStyles.leftPanel}>
-            <button onClick={() => setView('account')} className={`${accountStyles.loginRegisterButton} ${view === 'account' ? accountStyles.active : ''}`}>
-  <FontAwesomeIcon icon={faUserEdit} /><span className={accountStyles.buttonText}> Account Details</span>
-</button>
-<button onClick={() => setView('orders')} className={`${accountStyles.loginRegisterButton} ${view === 'orders' ? accountStyles.active : ''}`}>
-  <FontAwesomeIcon icon={faShoppingCart} /><span className={accountStyles.buttonText}> Orders</span>
-</button>
-<button onClick={() => setView('edit')} className={`${accountStyles.loginRegisterButton} ${view === 'edit' ? accountStyles.active : ''}`}>
-  <FontAwesomeIcon icon={faUserEdit} /><span className={accountStyles.buttonText}> Edit Account</span>
-</button>
+            {/* Comment out or remove the "Account Details" button */}
+      {/*
+      <button onClick={() => setView('account')} className={`${accountStyles.loginRegisterButton} ${view === 'account' ? accountStyles.active : ''}`}>
+        <FontAwesomeIcon icon={faUserEdit} /><span className={accountStyles.buttonText}> Account Details</span>
+      </button>
+      */}
+      <button onClick={() => setView('orders')} className={`${accountStyles.loginRegisterButton} ${view === 'orders' ? accountStyles.active : ''}`}>
+        <FontAwesomeIcon icon={faShoppingCart} /><span className={accountStyles.buttonText}> Orders</span>
+      </button>
+      {/* Comment out or remove the "Edit Account" button */}
+      {/*
+      <button onClick={() => setView('edit')} className={`${accountStyles.loginRegisterButton} ${view === 'edit' ? accountStyles.active : ''}`}>
+        <FontAwesomeIcon icon={faUserEdit} /><span className={accountStyles.buttonText}> Edit Account</span>
+      </button>
+      */}
 <button onClick={handleLogout} className={accountStyles.loginRegisterButton}>
   <FontAwesomeIcon icon={faSignOutAlt} /><span className={accountStyles.buttonText}> Log Out</span>
 </button>

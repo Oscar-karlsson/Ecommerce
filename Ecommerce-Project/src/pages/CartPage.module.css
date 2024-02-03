@@ -573,6 +573,10 @@ height: 50vh;
     width: 95%;
     float: left;
   }
+
+  .toggleButton {
+    width: 100%;
+  }
 }
 
 

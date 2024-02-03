@@ -64,6 +64,9 @@ const LoginRegister = () => {
       const response = await registerUser(values.email, values.password);
       console.log('Registration response:', response);  // Log the response to the console
       if (response && response.message === 'User created successfully') {
+        if (response.token) {
+          localStorage.setItem('token', response.token); // Store the token in local storage
+        }
         logIn(); // Update isLoggedIn state
         navigate('/account');
       } else {
@@ -119,7 +122,7 @@ const LoginRegister = () => {
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faGooglePlusG} /></a>
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faLinkedinIn} /></a>
             </div>
-            <span>or use your account</span>
+            <span className={styles.signInOption}>or use your account</span>
             <Field type="email" name="email" placeholder="Email" className={styles.loginRegisterInput} />
             <ErrorMessage name="email" component="p" className={styles.errorMessage} />
             <Field type="password" name="password" placeholder="Password" className={styles.loginRegisterInput} />
@@ -144,7 +147,7 @@ const LoginRegister = () => {
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faGooglePlusG} /></a>
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faLinkedinIn} /></a>
             </div>
-            <span>or use your email for registration</span>
+            <span className={styles.signInOption}>or use your email for registration</span>
             <Field type="text" name="name" placeholder="Name" className={styles.loginRegisterInput} />
             <ErrorMessage name="name" component="p" className={styles.errorMessage} />
             <Field type="email" name="email" placeholder="Email" className={styles.loginRegisterInput} />

@@ -9,10 +9,10 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 const HeaderSlider = ({ category }) => {
 const slides = [
     {
-      image: 'https://www.91-cdn.com/hub/wp-content/uploads/2022/12/Apple-Products-expected-to-launch-in-2023.png',
-      title: 'New Apple Products',
+      image: 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/202302/14649_samsung_s23-ultra_1-2-2023_1200x675-sixteen_nine.jpg?VersionId=11lWDaf3FVEq35iFvPeCQOod65Aj0cjD',
+      title: '',
       button: 'Shop Now',
-      path: '/apple-products' // Add path property
+      path: '/product/658b33155b510998a504473f' // Add path property
     },
     {
       image: 'https://media.wired.com/photos/6500ad57fe61eb702d721b58/master/pass/Apple-iPhone-15-Pro-Hero-Gear.jpg',

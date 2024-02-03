@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './ContactPage.module.css'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -40,18 +42,32 @@ const ContactPage = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Kontakta oss</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.formGroup}>
-          <label>Namn:</label>
-          <input 
-            type="text" 
-            name="name" 
-            value={formData.name} 
-            onChange={handleChange} 
-          />
-          {errors.name && <p className={styles.error}>{errors.name}</p>}
-        </div>
+  <h1 className={styles.title}>Kontakta oss</h1>
+  <p className={styles.intro}>Vi är här för att hjälpa till! Om du har några frågor eller funderingar, tveka inte att kontakta oss.</p>
+
+  <h2 className={styles.subTitle}>Kontaktinformation</h2>
+<div className={styles.info}>
+  <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
+  <a href="mailto:support@example.com" className={styles.link}>Email</a>
+</div>
+<div className={styles.info}>
+  <FontAwesomeIcon icon={faPhone} className={styles.icon} />
+  <a href="tel:(123) 456-7890" className={styles.link}>Telefon</a>
+</div>
+
+  <h2 className={styles.subTitle}>Skicka oss ett meddelande</h2>
+  <form onSubmit={handleSubmit} className={styles.form}>
+    <div className={styles.formGroup}>
+      <label className={styles.formLabel}>Namn:</label>
+      <input 
+        type="text" 
+        name="name" 
+        value={formData.name} 
+        onChange={handleChange} 
+        className={styles.formInput}
+      />
+      {errors.name && <p className={styles.error}>{errors.name}</p>}
+    </div>
         <div className={styles.formGroup}>
           <label>Email:</label>
           <input 
@@ -71,10 +87,12 @@ const ContactPage = () => {
           />
           {errors.message && <p className={styles.error}>{errors.message}</p>}
         </div>
-        <button type="submit" className={styles.submitButton}>Send Message</button>
-        {submissionMessage && <p className={styles.submissionMessage}>{submissionMessage}</p>}
-      </form>
-    </div>
+        <button type="submit" className={styles.submitButton}>Skicka meddelande</button>
+    {submissionMessage && <p className={styles.submissionMessage}>{submissionMessage}</p>}
+  </form>
+  <h2 className={styles.sectionTitle}>Öppettider</h2>
+<p className={styles.sectionContent}>Vår kundtjänst är tillgänglig från 9:00 till 17:00 , måndag till fredag.</p>
+</div>
   );
 };
 

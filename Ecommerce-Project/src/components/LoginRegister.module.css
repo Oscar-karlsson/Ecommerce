@@ -173,18 +173,19 @@
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
+        width: 100%;
       }
     
       .form-container {
         width: 100%;
-        padding: 20px;
+        padding: 10px;
         box-sizing: border-box;
       }
     
       .sign-in-container,
       .sign-up-container {
         order: 2;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
       }
     
       .overlay-container {
@@ -197,10 +198,13 @@
       }
       .loginRegisterInput {
         width: 100%;
-        height: 30px;
+        height: 20px;
       }
     
-    
+      .loginRegisterButton {
+        padding: 10px; 
+        width: 100%; 
+      }
     
       h1, p, span {
         font-size: 14px;
@@ -211,7 +215,16 @@
         width: 20px;
         font-size: 12px;
     }
-      }
+
+    .signInOption {
+      font-size: 0.7em; 
+    }
+
+    .errorMessage {
+      font-size: 0.7rem; 
+      
+    }
+ }
     
   
     
