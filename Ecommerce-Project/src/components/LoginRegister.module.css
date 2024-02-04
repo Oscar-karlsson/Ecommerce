@@ -7,7 +7,8 @@
     overflow: hidden;
     width: 768px;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 75vh;
+    height: auto;
     margin: 30px auto;
 }
 
@@ -144,7 +145,7 @@
 
 /* Social Buttons */
 .socialContainer {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .socialContainer a {
@@ -154,16 +155,16 @@
     justify-content: center;
     align-items: center;
     margin: 0 5px;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
 }
 
 
 
 .errorMessage {
     color: firebrick; /* Make the text color red */
-    font-size: 1rem; /* Reduce the font size */
-    margin-top: 3px; /* Add some space above the message */
+    font-size: 0.8rem; /* Reduce the font size */
+    margin-top: 1px; /* Add some space above the message */
   }
 
 
