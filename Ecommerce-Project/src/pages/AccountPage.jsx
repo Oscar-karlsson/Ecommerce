@@ -65,20 +65,20 @@ const AccountPage = () => {
         return (
             <div style={{ padding: '20px' }}>
 
-                {sortedOrders.map(order => (
-                    <div key={order._id} style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '20px' }}>
-                        <p><strong>Order ID:</strong> {order._id}</p>
-                        {order.products.map(product => (
-                            <div key={product._id} style={{ marginBottom: '10px' }}>
-                                <p><strong>Product Name:</strong> {product.product.name}</p>
-                                <p><strong>Quantity:</strong> {product.quantity}</p>
-                                <p><strong>Price:</strong> {product.product.price} kr</p>
-                            </div>
-                        ))}
-                        <p><strong>Total Price:</strong> {order.totalPrice} kr</p>
-                        <p><strong>Order Date:</strong> {new Date(order.createdAt).toLocaleString()}</p>
-                    </div>
-                ))}
+{sortedOrders.map(order => (
+  <div key={order._id} className={accountStyles.orderItem}>
+    <p className={accountStyles.orderItemTitle}><strong>Order ID:</strong> {order._id}</p>
+    {order.products.map(product => (
+      <div key={product._id} className={accountStyles.productDetails}>
+        <p><strong>Product Name:</strong> {product.product.name}</p>
+        <p><strong>Quantity:</strong> {product.quantity}</p>
+        <p><strong>Price:</strong> {product.product.price} kr</p>
+      </div>
+    ))}
+    <p className={accountStyles.orderTotalPrice}><strong>Total Price:</strong> {order.totalPrice} kr</p>
+    <p className={accountStyles.orderItemDate}><strong>Order Date:</strong> {new Date(order.createdAt).toLocaleString()}</p>
+  </div>
+))}
             </div>
         );
     };
