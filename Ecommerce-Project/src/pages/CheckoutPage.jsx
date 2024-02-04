@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import styles from './CheckoutPage.module.css'; // Import your CSS module here
+import styles from './CheckoutPage.module.css'; 
 import { CartContext } from '../context/CartContext';
 import cartStyles from './CartPage.module.css';
 

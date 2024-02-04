@@ -226,7 +226,7 @@ const [showCheckout, setShowCheckout] = useState(false);
        <button 
   type="button" 
   onClick={toggleShippingDifferent}
-  className={styles.toggleButton} // Use styles as an object
+  className={styles.toggleButton} 
 >
   {isShippingDifferent ? 'Same as Billing Address' : 'Different Shipping Address'}
 </button>
@@ -322,7 +322,7 @@ const [showCheckout, setShowCheckout] = useState(false);
       </label>
 
       <h3>Review Order</h3>
-      {/* Here you can add a component to review the order */}
+     
       
       <SubmitOrderButton 
   cartItems={cart} 

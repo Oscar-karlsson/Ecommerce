@@ -365,8 +365,8 @@
 
 
 .totalLabel {
-  font-size: 1.25em; /* Larger font size for the 'Total' label */
-  font-weight: bold; /* Bold font for the 'Total' label */
+  font-size: 1.25em; 
+  font-weight: bold; 
 }
 
 
@@ -415,8 +415,8 @@
 
 
 .toggleButton {
-  background-color: white; /* White */
-  border: 2px solid #4CAF50; /* Green border */
+  background-color: white; 
+  border: 2px solid #4CAF50; 
   color: #4CAF50;
   padding: 10px 20px; 
   text-align: center;
@@ -430,9 +430,9 @@
 }
 
 .toggleButton:hover {
-  background-color: #4CAF50; /* Green */
-  color: white; /* White text */
-  opacity: 0.4; /* Less green */
+  background-color: #4CAF50; 
+  color: white; 
+  opacity: 0.4; 
 }
 
 
@@ -460,7 +460,7 @@
 
 
 
-/* Path: Empty Cart */
+
 
 .emptyCartContainer {
   display: flex;
@@ -527,8 +527,8 @@ height: 50vh;
     display: none;
   }
   .qty {
-    width: 30px; /* Adjust as needed */
-    height: 30px; /* Adjust as needed */
+    width: 30px; 
+    height: 30px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 5px;
@@ -540,15 +540,15 @@ height: 50vh;
   }
 
   .prodTotal {
-    font-size: 0.8em; /* Adjust as needed */
-    white-space: nowrap; /* Prevent the total price from wrapping */
+    font-size: 0.8em; 
+    white-space: nowrap; 
   }
 
   .removeItem {
-    display: block; /* Make the "x" icon a block element */
-    float: none; /* Remove any float */
-    text-align: left; /* Align the "x" icon to the left */
-    margin-top: 10px; /* Add some space above the "x" icon */
+    display: block; 
+    float: none; 
+    text-align: left;
+    margin-top: 10px; 
   }
 
   .checkoutArea {

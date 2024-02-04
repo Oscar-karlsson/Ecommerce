@@ -58,7 +58,7 @@ const AccountPage = () => {
     const renderOrders = () => {
         if (error) return <div>Error: {error}</div>;
         if (!orders) return <div>Loading orders...</div>;
-        if (orders.length === 0) return <div>No orders have been made.</div>; // Add this line
+        if (orders.length === 0) return <div>No orders have been made.</div>; 
     
         // Sort orders by date in descending order (recent orders first)
         const sortedOrders = [...orders].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));

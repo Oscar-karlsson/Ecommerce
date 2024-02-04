@@ -12,17 +12,17 @@
   }
   
   ._productCard_1c08f_1 {
-    margin: 0; /* Adjust as needed */
-    padding: 0; /* Adjust as needed */
+    margin: 0; 
+    padding: 0; 
   }
 
 
   .products {
     display: flex;
    
-    gap: 1px; /* Space between grid items */
+    gap: 1px; 
     
-    align-items: start; /* Align grid items to the start vertically */
+    align-items: start; 
     
    margin: 0px;
    padding: 0px;
@@ -34,7 +34,7 @@
     font-weight: bold;
     color: #333;
     text-align: center;
-    margin-bottom: 1rem; /* Adjust space above slider */
+    margin-bottom: 1rem; 
   }
 
   .products::-webkit-scrollbar {
@@ -48,8 +48,8 @@
   }
   
   .productSlide {
-    padding: 10px; /* Adjust as needed */
-    box-sizing: border-box; /* Ensures padding is included in width */
+    padding: 10px; 
+    box-sizing: border-box; 
   }
   
 

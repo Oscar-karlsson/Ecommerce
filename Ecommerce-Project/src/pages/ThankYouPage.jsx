@@ -10,7 +10,7 @@ const ThankYouPage = () => {
 
   // Function to handle the "Back to Shop" button click
   const onBackToShop = () => {
-      navigate('/'); // Navigate to the home page or wherever you want
+      navigate('/'); 
   };
 
 
@@ -21,7 +21,7 @@ const ThankYouPage = () => {
             <div className={styles.messageBox}>
               <div className={styles.successContainer}>
                 <img
-                    src="../src/assets/logo.png" // Replace with your image URL
+                    src="../src/assets/logo.png" 
                     alt="Thank You"
                     className={styles.thankYouImage}
                 />

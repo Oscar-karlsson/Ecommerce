@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import styles from './SearchBar.module.css'; // Import the CSS module
+import styles from './SearchBar.module.css'; 
 import { useNavigate } from 'react-router-dom';
 
 
@@ -70,7 +70,7 @@ const SearchBar = () => {
       <div className={styles.productItem}>
         <img src={product.images[0]} alt={product.name} className={styles.productImage} />
         <div className={styles.productName}>{product.name}</div>
-        <div className={styles.productPrice}>{product.price} kr</div> {/* Add this line */}
+        <div className={styles.productPrice}>{product.price} kr</div> 
       </div>
     </div>
   </Link>

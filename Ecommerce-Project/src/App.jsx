@@ -32,9 +32,9 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Simulate a 2 second loading time
+    }, 2000); 
 
-    return () => clearTimeout(timer); // Clean up the timer
+    return () => clearTimeout(timer); 
   }, []);
 
 
@@ -45,7 +45,7 @@ function App() {
     <Router>
       <Navbar />
       {isLoading ? (
-        <Loading /> // Render the Loading component if isLoading is true
+        <Loading /> 
       ) : (
         <>
       <Routes>
@@ -61,7 +61,6 @@ function App() {
         <Route path="/thank-you" element={<ThankYouPage />} />
         <Route path="/om-oss" element={<AboutPage />} />
         <Route path="*" element={<NotFoundPage />} />
-        {/* other routes */}
       </Routes>
       <Footer />
       </>

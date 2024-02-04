@@ -276,8 +276,8 @@
     }
 
     .loginRegisterButton {
-        padding: 20px; /* Adjust as needed */
-        width: auto; /* Adjust as needed */
+        padding: 20px;
+        width: auto; 
       }
 
     .buttonText {

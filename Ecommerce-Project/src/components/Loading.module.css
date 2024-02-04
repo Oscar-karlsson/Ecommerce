@@ -5,8 +5,8 @@
     height: 100vh;
     width: 100vw;
     position: fixed;
-    background-color: #fff; /* Change this to the desired background color */
-    z-index: 2; /* This should be higher than the z-index of any other element */
+    background-color: #fff; 
+    z-index: 2; 
 }
 
 

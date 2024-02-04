@@ -33,7 +33,7 @@ const SearchResultsPage = () => {
               );
               setProducts(filteredProducts);
             } else {
-              // If no searchTerm, you can choose to set an empty array or the full list
+            
               setProducts([]);
             }
             setIsLoading(false);

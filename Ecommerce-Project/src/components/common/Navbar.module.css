@@ -144,7 +144,7 @@
   }
 
   .logo {
-    max-width: 50px; /* Adjust as needed */
+    max-width: 50px; 
     max-height: 50px;
     margin-left: 0;
   
@@ -189,27 +189,27 @@
   }
 
   .navbarLinks {
-    position: fixed; /* Make the menu a fixed element */
-    top: 16.6vh; /* Align the menu to the top of the screen */
-    right: -100%; /* Move the menu off the screen to the right */
-    width: 45%; /* Set the width of the menu */
-    height: 100%; /* Make the menu the full height of the screen */
-    background: #F5F5F5; /* Set a background color */
-    display: flex; /* Display the menu items in a flex container */
-    flex-direction: column; /* Arrange the menu items in a column */
-    transition: right 0.3s ease-out; /* Animate the right property */
+    position: fixed; 
+    top: 16.6vh; 
+    right: -100%; 
+    width: 45%; 
+    height: 100%; 
+    background: #F5F5F5; 
+    display: flex; 
+    flex-direction: column; 
+    transition: right 0.3s ease-out; 
     z-index: 20;
-    justify-content: flex-start; /* Move the links to the top */
+    justify-content: flex-start; 
     align-items: center;
     padding-top: 1.5rem;
     overflow-y: auto;
-    scrollbar-width: thin; /* Set the width of the scrollbar */
+    scrollbar-width: thin; 
     scrollbar-color: rgba(155, 155, 155, 0.7) transparent;
-    direction: rtl; /* Move the scrollbar to the left */
+    direction: rtl; 
   }
 
   .navbarLinks a {
-    direction: ltr; /* Make the text display normally */
+    direction: ltr; 
   }
 
   .navbarLinks::-webkit-scrollbar {

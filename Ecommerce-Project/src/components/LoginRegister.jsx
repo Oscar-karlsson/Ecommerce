@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGooglePlusG, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import styles from './LoginRegister.module.css'; // Make sure the path matches your project structure
+import styles from './LoginRegister.module.css'; 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { registerUser, login } from '../utils/api'; // Import your API functions
+import { registerUser, login } from '../utils/api'; 
 import { useAuth } from '../context/AuthContext';
 
 
@@ -116,7 +116,7 @@ const LoginRegister = () => {
           <Form className={styles.form}>
             <h1>Sign In</h1>
             <div className={styles.socialContainer}>
-              {/* Implement actual authentication logic */}
+           
               
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faFacebookF} /></a>
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faGooglePlusG} /></a>

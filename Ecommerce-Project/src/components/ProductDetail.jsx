@@ -48,7 +48,7 @@ const ProductDetail = () => {
         })
         .catch(error => {
           console.error('Error fetching product:', error);
-          // You may want to handle 404 Not Found and 400 Bad Request errors here
+         
         });
     }, [id]);
 

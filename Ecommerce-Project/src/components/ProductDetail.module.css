@@ -61,22 +61,22 @@
   font-size: 1em;
 }
 .readMoreBtn {
-  background-color: transparent; /* Transparent background */
-  border: 2px solid #666; /* Dark border */
-  color: #666; /* Dark text */
-  padding: 8px 16px; /* Smaller padding */
+  background-color: transparent; 
+  border: 2px solid #666; 
+  color: #666; 
+  padding: 8px 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 0.9em; /* Smaller font size */
+  font-size: 0.9em; 
   margin: 4px 2px;
   cursor: pointer;
   transition-duration: 0.4s;
 }
 
 .readMoreBtn:hover {
-  color: #000; /* Black text on hover */
-  border-color: #000; /* Black border on hover */
+  color: #000; 
+  border-color: #000; 
 }
 
 .productPrice {
@@ -101,12 +101,12 @@
 .quantityInput {
   width: 50px;
   text-align: center;
-  line-height: 30px; /* Add this line */
-  height: 30px; /* Add this line */
+  line-height: 30px; 
+  height: 30px; 
 }
 
 .increment {
-  margin-left: -5px; /* Adjust this value to move the "+" button to the left */
+  margin-left: -5px; 
 }
 
 .quantityInput::-webkit-inner-spin-button,
@@ -133,7 +133,7 @@
 }
 
 .addToCartButton:hover {
-  background-color: #45a049; /* dark green */
+  background-color: #45a049; 
 }
 
 .actionRow {
@@ -181,9 +181,9 @@
   }
 
   .quantityInput {
-    width: 30px; /* Adjust as needed */
-    height: 30px; /* Adjust as needed */
-    font-size: 14px; /* Adjust as needed */
+    width: 30px; 
+    height: 30px; 
+    font-size: 14px; 
   }
 
   .addToCartButton {

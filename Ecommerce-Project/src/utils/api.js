@@ -64,7 +64,7 @@ export const getOrders = async (token) => {
       headers: { 'Authorization': `Bearer ${token}` },
     });
     const responseData = await response.json();
-    console.log("Orders response:", responseData); // For debugging
+    console.log("Orders response:", responseData); 
     if (!response.ok) {
       throw new Error('Error fetching orders');
     }
