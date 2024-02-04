@@ -77,16 +77,16 @@ const CategoryFilter = ({ onCategoryChange }) => {
       </button>
       <div className={`${styles.categoryList} ${showMore ? styles.visible : ''}`}>
         <ul>
-          {visibleCategories.map((category, index) => (
-            <li key={index} 
-                className={styles.categoryItem} 
-                onClick={(event) => handleCategoryClick(event, category)}>
-              <input type="checkbox" 
-                     checked={selectedCategories.includes(category)} 
-                     readOnly />
-              {category}
-            </li>
-          ))}
+        {visibleCategories.map((category, index) => (
+  <li key={index} 
+      className={styles.categoryItem} 
+      onClick={(event) => handleCategoryClick(event, category)}>
+    <input type="checkbox" 
+           checked={selectedCategories.includes(category)} 
+           readOnly />
+    {category.charAt(0).toUpperCase() + category.slice(1)}
+  </li>
+))}
         </ul>
         <div className={styles.resetButtonContainer}>
           <button className={styles.resetButton} onClick={handleReset}>Reset</button>

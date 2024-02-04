@@ -17,6 +17,7 @@ import LoginRegister from './components/LoginRegister';
 import AccountPage from './pages/AccountPage';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import ProtectedRoute from './utils/ProtectedRoute';
+import AboutPage from './pages/AboutPage';
 
 
 
@@ -58,6 +59,7 @@ function App() {
         <Route path="/search" element={<SearchResultsPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
+        <Route path="/om-oss" element={<AboutPage />} />
         <Route path="*" element={<NotFoundPage />} />
         {/* other routes */}
       </Routes>

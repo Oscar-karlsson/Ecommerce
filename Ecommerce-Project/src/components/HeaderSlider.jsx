@@ -9,21 +9,21 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 const HeaderSlider = ({ category }) => {
 const slides = [
     {
-      image: 'https://www.91-cdn.com/hub/wp-content/uploads/2022/12/Apple-Products-expected-to-launch-in-2023.png',
-      title: 'New Apple Products',
-      button: 'Shop Now',
-      path: '/apple-products' // Add path property
+      image: 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/202302/14649_samsung_s23-ultra_1-2-2023_1200x675-sixteen_nine.jpg?VersionId=11lWDaf3FVEq35iFvPeCQOod65Aj0cjD',
+      title: '',
+      button: 'Läs mer',
+      path: '/product/658b33155b510998a504473f' 
     },
     {
       image: 'https://media.wired.com/photos/6500ad57fe61eb702d721b58/master/pass/Apple-iPhone-15-Pro-Hero-Gear.jpg',
       title: 'Upptäck iPhone 15 Pro',
-      button: 'Shop Now',
+      button: 'Läs mer',
       path: '/product/658b33d25b510998a5044748'
     },
     {
         image: 'https://m.media-amazon.com/images/S/aplus-media-library-service-media/13e20795-3b08-4c92-b3ec-e77638c9783d.__CR0,0,1464,600_PT0_SX1464_V1___.jpg',
       title: '',
-      button: 'Shop Now',
+      button: 'Läs mer',
       path: '/product/658af4d5d711cabe3c940466'
     },
     // Add more slides as needed

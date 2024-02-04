@@ -100,7 +100,7 @@ return (
     <ul className={`${styles.navbarLinks} ${isOpen ? styles.showMenu : ''}`}>
       <li><NavLink to="/alla-produkter" onClick={closeMenu}>Alla Produkter</NavLink></li>
       <li><NavLink to="/kontakta-oss" onClick={closeMenu}>Kontakta oss</NavLink></li>
-      <li><NavLink to="/about" onClick={closeMenu}>About</NavLink></li>
+      <li><NavLink to="/om-oss" onClick={closeMenu}>Om oss</NavLink></li>
       {/* Additional navigation links */}
     </ul>
   </nav>
