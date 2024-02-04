@@ -67,7 +67,7 @@ const LoginRegister = () => {
         if (response.token) {
           localStorage.setItem('token', response.token); // Store the token in local storage
         }
-        logIn(); // Update isLoggedIn state
+        logIn(); 
         navigate('/account');
       } else {
         // Check if response has a message property
@@ -141,7 +141,7 @@ const LoginRegister = () => {
           onSubmit={handleRegisterSubmit}
         >
           <Form className={styles.form}>
-            <h1>Create Account</h1>
+            <h1 >Create Account</h1>
             <div className={styles.socialContainer}>
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faFacebookF} /></a>
               <a href="#" className={styles.social}><FontAwesomeIcon icon={faGooglePlusG} /></a>
