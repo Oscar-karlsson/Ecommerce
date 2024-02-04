@@ -25,6 +25,8 @@ const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    setErrors({});
     const formErrors = validateForm();
     if (Object.keys(formErrors).length === 0) {
       try {
