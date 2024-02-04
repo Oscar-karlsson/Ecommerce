@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect  } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './CartPage.module.css'; // Import your CSS module here
+import styles from './CartPage.module.css'; 
 import { CartContext } from '../context/CartContext';
 import SubmitOrderButton from '../components/SubmitOrderButton';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';

@@ -84,7 +84,7 @@ const CategoryFilter = ({ onCategoryChange }) => {
     <input type="checkbox" 
            checked={selectedCategories.includes(category)} 
            readOnly />
-    {category.charAt(0).toUpperCase() + category.slice(1)}
+    {category === 'All' ? 'Alla kategorier' : category.charAt(0).toUpperCase() + category.slice(1)}
   </li>
 ))}
         </ul>
